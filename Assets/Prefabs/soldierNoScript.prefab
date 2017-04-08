@@ -5,19 +5,19 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400010}
-  - component: {fileID: 3300000}
-  - component: {fileID: 2300000}
-  - component: {fileID: 11100002}
+  - 4: {fileID: 400010}
+  - 33: {fileID: 3300000}
+  - 23: {fileID: 2300000}
+  - 111: {fileID: 11100002}
   m_Layer: 0
-  m_Name: gun
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100001
 EditorExtensionImpl:
   serializedVersion: 6
@@ -26,16 +26,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400000}
+  - 4: {fileID: 400000}
   m_Layer: 0
-  m_Name: Bip01 R Finger41
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100003
 EditorExtensionImpl:
   serializedVersion: 6
@@ -44,16 +44,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400012}
+  - 4: {fileID: 400012}
   m_Layer: 0
-  m_Name: Bip01 R Finger4
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100005
 EditorExtensionImpl:
   serializedVersion: 6
@@ -62,16 +62,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400002}
+  - 4: {fileID: 400002}
   m_Layer: 0
-  m_Name: Bip01 R Finger31
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100007
 EditorExtensionImpl:
   serializedVersion: 6
@@ -80,16 +80,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400014}
+  - 4: {fileID: 400014}
   m_Layer: 0
-  m_Name: Bip01 R Finger3
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100009
 EditorExtensionImpl:
   serializedVersion: 6
@@ -98,16 +98,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400004}
+  - 4: {fileID: 400004}
   m_Layer: 0
-  m_Name: Bip01 R Finger21
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100011
 EditorExtensionImpl:
   serializedVersion: 6
@@ -116,16 +116,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400016}
+  - 4: {fileID: 400016}
   m_Layer: 0
-  m_Name: Bip01 R Finger2
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100013
 EditorExtensionImpl:
   serializedVersion: 6
@@ -134,16 +134,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400006}
+  - 4: {fileID: 400006}
   m_Layer: 0
-  m_Name: Bip01 R Finger11
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100015
 EditorExtensionImpl:
   serializedVersion: 6
@@ -152,16 +152,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400018}
+  - 4: {fileID: 400018}
   m_Layer: 0
-  m_Name: Bip01 R Finger1
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100017
 EditorExtensionImpl:
   serializedVersion: 6
@@ -170,16 +170,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400008}
+  - 4: {fileID: 400008}
   m_Layer: 0
-  m_Name: Bip01 R Finger01
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100019
 EditorExtensionImpl:
   serializedVersion: 6
@@ -188,16 +188,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400020}
+  - 4: {fileID: 400020}
   m_Layer: 0
-  m_Name: Bip01 R Finger0
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100021
 EditorExtensionImpl:
   serializedVersion: 6
@@ -206,16 +206,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400022}
+  - 4: {fileID: 400022}
   m_Layer: 0
-  m_Name: Bip01 R Hand
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100023
 EditorExtensionImpl:
   serializedVersion: 6
@@ -224,16 +224,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400024}
+  - 4: {fileID: 400024}
   m_Layer: 0
-  m_Name: Bip01 R Forearm
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100025
 EditorExtensionImpl:
   serializedVersion: 6
@@ -242,16 +242,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400026}
+  - 4: {fileID: 400026}
   m_Layer: 0
-  m_Name: Bip01 R UpperArm
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100027
 EditorExtensionImpl:
   serializedVersion: 6
@@ -260,16 +260,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400056}
+  - 4: {fileID: 400056}
   m_Layer: 0
-  m_Name: Bip01 R Clavicle
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100029
 EditorExtensionImpl:
   serializedVersion: 6
@@ -278,16 +278,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400028}
+  - 4: {fileID: 400028}
   m_Layer: 0
-  m_Name: Bip01 L Finger41
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100031
 EditorExtensionImpl:
   serializedVersion: 6
@@ -296,16 +296,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400038}
+  - 4: {fileID: 400038}
   m_Layer: 0
-  m_Name: Bip01 L Finger4
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100033
 EditorExtensionImpl:
   serializedVersion: 6
@@ -314,16 +314,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400030}
+  - 4: {fileID: 400030}
   m_Layer: 0
-  m_Name: Bip01 L Finger31
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100035
 EditorExtensionImpl:
   serializedVersion: 6
@@ -332,16 +332,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400040}
+  - 4: {fileID: 400040}
   m_Layer: 0
-  m_Name: Bip01 L Finger3
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100037
 EditorExtensionImpl:
   serializedVersion: 6
@@ -350,16 +350,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400032}
+  - 4: {fileID: 400032}
   m_Layer: 0
-  m_Name: Bip01 L Finger21
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100039
 EditorExtensionImpl:
   serializedVersion: 6
@@ -368,16 +368,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400042}
+  - 4: {fileID: 400042}
   m_Layer: 0
-  m_Name: Bip01 L Finger2
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100041
 EditorExtensionImpl:
   serializedVersion: 6
@@ -386,16 +386,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400034}
+  - 4: {fileID: 400034}
   m_Layer: 0
-  m_Name: Bip01 L Finger11
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100043
 EditorExtensionImpl:
   serializedVersion: 6
@@ -404,16 +404,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400044}
+  - 4: {fileID: 400044}
   m_Layer: 0
-  m_Name: Bip01 L Finger1
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100045
 EditorExtensionImpl:
   serializedVersion: 6
@@ -422,16 +422,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400036}
+  - 4: {fileID: 400036}
   m_Layer: 0
-  m_Name: Bip01 L Finger01
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100047
 EditorExtensionImpl:
   serializedVersion: 6
@@ -440,16 +440,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400046}
+  - 4: {fileID: 400046}
   m_Layer: 0
-  m_Name: Bip01 L Finger0
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100049
 EditorExtensionImpl:
   serializedVersion: 6
@@ -458,16 +458,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400048}
+  - 4: {fileID: 400048}
   m_Layer: 0
-  m_Name: Bip01 L Hand
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100051
 EditorExtensionImpl:
   serializedVersion: 6
@@ -476,16 +476,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400050}
+  - 4: {fileID: 400050}
   m_Layer: 0
-  m_Name: Bip01 L Forearm
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100053
 EditorExtensionImpl:
   serializedVersion: 6
@@ -494,16 +494,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400052}
+  - 4: {fileID: 400052}
   m_Layer: 0
-  m_Name: Bip01 L UpperArm
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100055
 EditorExtensionImpl:
   serializedVersion: 6
@@ -512,16 +512,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400058}
+  - 4: {fileID: 400058}
   m_Layer: 0
-  m_Name: Bip01 L Clavicle
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100057
 EditorExtensionImpl:
   serializedVersion: 6
@@ -530,19 +530,19 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400054}
-  - component: {fileID: 3300002}
-  - component: {fileID: 2300002}
-  - component: {fileID: 11100004}
+  - 4: {fileID: 400054}
+  - 33: {fileID: 3300002}
+  - 23: {fileID: 2300002}
+  - 111: {fileID: 11100004}
   m_Layer: 0
-  m_Name: soldierHelmet
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100059
 EditorExtensionImpl:
   serializedVersion: 6
@@ -551,16 +551,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400060}
+  - 4: {fileID: 400060}
   m_Layer: 0
-  m_Name: Bip01 Head
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100061
 EditorExtensionImpl:
   serializedVersion: 6
@@ -569,16 +569,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400062}
+  - 4: {fileID: 400062}
   m_Layer: 0
-  m_Name: Bip01 Neck
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100063
 EditorExtensionImpl:
   serializedVersion: 6
@@ -587,16 +587,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400064}
+  - 4: {fileID: 400064}
   m_Layer: 0
-  m_Name: Bip01 Spine2
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100065
 EditorExtensionImpl:
   serializedVersion: 6
@@ -605,16 +605,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400078}
+  - 4: {fileID: 400078}
   m_Layer: 0
-  m_Name: Bip01 Spine1
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100067
 EditorExtensionImpl:
   serializedVersion: 6
@@ -623,16 +623,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400066}
+  - 4: {fileID: 400066}
   m_Layer: 0
-  m_Name: Bip01 R Toe0
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100069
 EditorExtensionImpl:
   serializedVersion: 6
@@ -641,16 +641,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400068}
+  - 4: {fileID: 400068}
   m_Layer: 0
-  m_Name: Bip01 R Foot
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100071
 EditorExtensionImpl:
   serializedVersion: 6
@@ -659,16 +659,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400070}
+  - 4: {fileID: 400070}
   m_Layer: 0
-  m_Name: Bip01 R Calf
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100073
 EditorExtensionImpl:
   serializedVersion: 6
@@ -677,16 +677,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400080}
+  - 4: {fileID: 400080}
   m_Layer: 0
-  m_Name: Bip01 R Thigh
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100075
 EditorExtensionImpl:
   serializedVersion: 6
@@ -695,16 +695,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400072}
+  - 4: {fileID: 400072}
   m_Layer: 0
-  m_Name: Bip01 L Toe0
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100077
 EditorExtensionImpl:
   serializedVersion: 6
@@ -713,16 +713,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400074}
+  - 4: {fileID: 400074}
   m_Layer: 0
-  m_Name: Bip01 L Foot
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100079
 EditorExtensionImpl:
   serializedVersion: 6
@@ -731,16 +731,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400076}
+  - 4: {fileID: 400076}
   m_Layer: 0
-  m_Name: Bip01 L Calf
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100081
 EditorExtensionImpl:
   serializedVersion: 6
@@ -749,16 +749,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400082}
+  - 4: {fileID: 400082}
   m_Layer: 0
-  m_Name: Bip01 L Thigh
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100083
 EditorExtensionImpl:
   serializedVersion: 6
@@ -767,16 +767,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400084}
+  - 4: {fileID: 400084}
   m_Layer: 0
-  m_Name: Bip01 Spine
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100085
 EditorExtensionImpl:
   serializedVersion: 6
@@ -785,16 +785,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400086}
+  - 4: {fileID: 400086}
   m_Layer: 0
-  m_Name: Bip01 Pelvis
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100087
 EditorExtensionImpl:
   serializedVersion: 6
@@ -803,17 +803,17 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400088}
-  - component: {fileID: 13700002}
+  - 4: {fileID: 400088}
+  - 137: {fileID: 13700002}
   m_Layer: 0
-  m_Name: head
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100089
 EditorExtensionImpl:
   serializedVersion: 6
@@ -822,16 +822,16 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400090}
+  - 4: {fileID: 400090}
   m_Layer: 0
-  m_Name: Bip01
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100091
 EditorExtensionImpl:
   serializedVersion: 6
@@ -840,17 +840,17 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400092}
-  - component: {fileID: 13700000}
+  - 4: {fileID: 400092}
+  - 137: {fileID: 13700000}
   m_Layer: 0
-  m_Name: armorBody
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100093
 EditorExtensionImpl:
   serializedVersion: 6
@@ -859,17 +859,17 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400094}
-  - component: {fileID: 13700004}
+  - 4: {fileID: 400094}
+  - 137: {fileID: 13700004}
   m_Layer: 0
-  m_Name: armorArms
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100095
 EditorExtensionImpl:
   serializedVersion: 6
@@ -878,18 +878,18 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 400096}
-  - component: {fileID: 11100000}
-  - component: {fileID: 64419850011690374}
+  - 4: {fileID: 400096}
+  - 111: {fileID: 11100000}
+  - 64: {fileID: 64419850011690374}
   m_Layer: 0
   m_Name: soldierNoScript
-  m_TagString: soldier
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100097
 EditorExtensionImpl:
   serializedVersion: 6
@@ -902,10 +902,10 @@ Transform:
   m_LocalRotation: {x: -0.000000001023442, y: 0.000000004909792, z: -0.17410815, w: 0.98472655}
   m_LocalPosition: {x: -0.04683815, y: 0.000000076293944, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400012}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400001
 EditorExtensionImpl:
   serializedVersion: 6
@@ -918,10 +918,10 @@ Transform:
   m_LocalRotation: {x: 0.000000069324614, y: -0.000000003745279, z: -0.17410812, w: 0.98472655}
   m_LocalPosition: {x: -0.05620575, y: 0.000000038146972, z: 0.000000019073486}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400014}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400003
 EditorExtensionImpl:
   serializedVersion: 6
@@ -934,10 +934,10 @@ Transform:
   m_LocalRotation: {x: -0.00000003744414, y: -0.000000008511836, z: -0.17410813, w: 0.98472655}
   m_LocalPosition: {x: -0.065573424, y: 0, z: 0.000000009536743}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400016}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400005
 EditorExtensionImpl:
   serializedVersion: 6
@@ -950,10 +950,10 @@ Transform:
   m_LocalRotation: {x: -0.000000039278333, y: -0.000000008187535, z: -0.1741081, w: 0.98472655}
   m_LocalPosition: {x: -0.05620575, y: -0.000000038146972, z: -0.000000038146972}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400018}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400007
 EditorExtensionImpl:
   serializedVersion: 6
@@ -967,10 +967,10 @@ Transform:
     w: 0.98472655}
   m_LocalPosition: {x: -0.050548475, y: 0, z: 0}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400020}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400009
 EditorExtensionImpl:
   serializedVersion: 6
@@ -983,10 +983,10 @@ Transform:
   m_LocalRotation: {x: -0.59189117, y: 0.5287805, z: 0.50172675, w: -0.34398594}
   m_LocalPosition: {x: -0.07364334, y: 0.035008535, z: 0.08283602}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400022}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400011
 EditorExtensionImpl:
   serializedVersion: 6
@@ -999,11 +999,11 @@ Transform:
   m_LocalRotation: {x: 0.13431677, y: -0.13034216, z: -0.49857438, w: 0.8464003}
   m_LocalPosition: {x: -0.12682049, y: 0.016288681, z: -0.08656612}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 400022}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400013
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1016,11 +1016,11 @@ Transform:
   m_LocalRotation: {x: 0.11598075, y: -0.19065927, z: -0.32817453, w: 0.9178775}
   m_LocalPosition: {x: -0.15943904, y: 0.004327087, z: -0.049367484}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 400022}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400015
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1033,11 +1033,11 @@ Transform:
   m_LocalRotation: {x: 0.03356994, y: -0.054544, z: -0.21063446, w: 0.9754646}
   m_LocalPosition: {x: -0.15857196, y: 0.003605728, z: -0.01089281}
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400004}
   m_Father: {fileID: 400022}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400017
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1050,11 +1050,11 @@ Transform:
   m_LocalRotation: {x: -0.04313177, y: 0.051645443, z: -0.2552702, w: 0.9645256}
   m_LocalPosition: {x: -0.15895134, y: 0.0013963317, z: 0.03268816}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400006}
   m_Father: {fileID: 400022}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400019
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1067,11 +1067,11 @@ Transform:
   m_LocalRotation: {x: -0.27469885, y: 0.1455502, z: -0.28417724, w: 0.9069724}
   m_LocalPosition: {x: -0.08782921, y: 0.026258392, z: 0.072318934}
   m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1.0000002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400008}
   m_Father: {fileID: 400022}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400021
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1084,6 +1084,7 @@ Transform:
   m_LocalRotation: {x: 0.47684774, y: 0.15504287, z: 0.0436601, w: 0.8641017}
   m_LocalPosition: {x: -0.2454335, y: -0.000000057220458, z: 0.000000076293944}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400020}
   - {fileID: 400018}
@@ -1093,7 +1094,6 @@ Transform:
   - {fileID: 400010}
   m_Father: {fileID: 400024}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400023
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1106,11 +1106,11 @@ Transform:
   m_LocalRotation: {x: 0.000000026518787, y: -0.000000038951256, z: 0.27249622, w: 0.9621569}
   m_LocalPosition: {x: -0.3132688, y: -0.000000038146972, z: 0}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400022}
   m_Father: {fileID: 400026}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400025
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1123,11 +1123,11 @@ Transform:
   m_LocalRotation: {x: -0.057633966, y: 0.47578907, z: -0.057605885, w: 0.87577665}
   m_LocalPosition: {x: -0.17832118, y: -9.094947e-15, z: 0.00000015258789}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400024}
   m_Father: {fileID: 400056}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400027
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1140,10 +1140,10 @@ Transform:
   m_LocalRotation: {x: -0.000000022278849, y: 0.000000007722163, z: -0.17410813, w: 0.98472655}
   m_LocalPosition: {x: -0.04683815, y: 0, z: 0.000000038146972}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400038}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400029
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1157,10 +1157,10 @@ Transform:
     w: 0.98472655}
   m_LocalPosition: {x: -0.05620567, y: 0, z: 0.000000019073486}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400040}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400031
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1173,10 +1173,10 @@ Transform:
   m_LocalRotation: {x: 0.000000031718326, y: -0.000000013174215, z: -0.17410813, w: 0.98472655}
   m_LocalPosition: {x: -0.06557335, y: 0, z: -0.000000019073486}
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400042}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400033
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1189,10 +1189,10 @@ Transform:
   m_LocalRotation: {x: 0.000000008410763, y: -0.000000016619376, z: -0.17410813, w: 0.98472655}
   m_LocalPosition: {x: -0.05620575, y: -0.000000038146972, z: 0}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400044}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400035
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1206,10 +1206,10 @@ Transform:
     w: 0.98472655}
   m_LocalPosition: {x: -0.0505484, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400046}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400037
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1222,11 +1222,11 @@ Transform:
   m_LocalRotation: {x: -0.13431679, y: 0.13034216, z: -0.49857444, w: 0.8464003}
   m_LocalPosition: {x: -0.12682045, y: 0.016288605, z: 0.08656616}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400028}
   m_Father: {fileID: 400048}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400039
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1239,11 +1239,11 @@ Transform:
   m_LocalRotation: {x: -0.11598072, y: 0.19065928, z: -0.32817456, w: 0.91787744}
   m_LocalPosition: {x: -0.15943909, y: 0.004327087, z: 0.04936752}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400030}
   m_Father: {fileID: 400048}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400041
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1256,11 +1256,11 @@ Transform:
   m_LocalRotation: {x: -0.03356999, y: 0.05454401, z: -0.21063447, w: 0.9754646}
   m_LocalPosition: {x: -0.15857196, y: 0.0036056517, z: 0.01089283}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400032}
   m_Father: {fileID: 400048}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400043
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1273,11 +1273,11 @@ Transform:
   m_LocalRotation: {x: 0.04313176, y: -0.05164543, z: -0.2552702, w: 0.9645256}
   m_LocalPosition: {x: -0.1589513, y: 0.0013961792, z: -0.032688122}
   m_LocalScale: {x: 1.0000001, y: 0.9999999, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400034}
   m_Father: {fileID: 400048}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400045
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1290,11 +1290,11 @@ Transform:
   m_LocalRotation: {x: 0.27469882, y: -0.14555022, z: -0.28417727, w: 0.9069724}
   m_LocalPosition: {x: -0.08782921, y: 0.026258316, z: -0.072318874}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400036}
   m_Father: {fileID: 400048}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400047
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1307,6 +1307,7 @@ Transform:
   m_LocalRotation: {x: -0.47684774, y: -0.15504289, z: 0.043660093, w: 0.8641017}
   m_LocalPosition: {x: -0.2454335, y: 0.000000019073486, z: 0}
   m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400046}
   - {fileID: 400044}
@@ -1315,7 +1316,6 @@ Transform:
   - {fileID: 400038}
   m_Father: {fileID: 400050}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400049
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1328,11 +1328,11 @@ Transform:
   m_LocalRotation: {x: -0.00000003368742, y: 0.00000003692101, z: 0.27249625, w: 0.9621569}
   m_LocalPosition: {x: -0.31326872, y: 0, z: 0}
   m_LocalScale: {x: 0.9999998, y: 0.99999976, z: 0.9999999}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400048}
   m_Father: {fileID: 400052}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400051
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1345,11 +1345,11 @@ Transform:
   m_LocalRotation: {x: 0.057633966, y: -0.47578907, z: -0.057605885, w: 0.87577665}
   m_LocalPosition: {x: -0.17832118, y: 9.094947e-15, z: -0.00000015258789}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400050}
   m_Father: {fileID: 400058}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400053
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1362,10 +1362,10 @@ Transform:
   m_LocalRotation: {x: 0.5000003, y: -0.49999967, z: -0.49999967, w: -0.5000004}
   m_LocalPosition: {x: -0.15456021, y: 0.028018909, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400060}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400055
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1378,11 +1378,11 @@ Transform:
   m_LocalRotation: {x: 0.6677923, y: 0.00026485696, z: 0.74434763, w: -0.00029729315}
   m_LocalPosition: {x: -0, y: 0.000048937498, z: -0.028633894}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400026}
   m_Father: {fileID: 400062}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400057
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1395,11 +1395,11 @@ Transform:
   m_LocalRotation: {x: -0.6677923, y: -0.0002669215, z: 0.74434763, w: -0.000295441}
   m_LocalPosition: {x: -0, y: 0.000048778653, z: 0.028633894}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400052}
   m_Father: {fileID: 400062}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400059
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1412,11 +1412,11 @@ Transform:
   m_LocalRotation: {x: -7.2656e-14, y: -0.0000000011042733, z: 0.00039883057, w: 0.99999994}
   m_LocalPosition: {x: -0.061358336, y: 0, z: 2.842171e-16}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400054}
   m_Father: {fileID: 400062}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400061
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1429,13 +1429,13 @@ Transform:
   m_LocalRotation: {x: -3.0117673e-14, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0.14180587, y: -0.00004885815, z: -1.35513e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400060}
   - {fileID: 400058}
   - {fileID: 400056}
   m_Father: {fileID: 400064}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400063
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1448,11 +1448,11 @@ Transform:
   m_LocalRotation: {x: -3.0117673e-14, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0.14180587, y: -0.00011291638, z: -3.1318478e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400062}
   m_Father: {fileID: 400078}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400065
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1465,10 +1465,10 @@ Transform:
   m_LocalRotation: {x: -0.0000001269396, y: -0.00000017335671, z: -0.7071068, w: 0.70710677}
   m_LocalPosition: {x: -0.16125676, y: 0.2075304, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400068}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400067
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1481,11 +1481,11 @@ Transform:
   m_LocalRotation: {x: 0.05054575, y: -0.11958508, z: -0.04321304, w: 0.9905944}
   m_LocalPosition: {x: -0.32047862, y: -0.0000000047683715, z: 0.000000019073486}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400066}
   m_Father: {fileID: 400070}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400069
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1498,11 +1498,11 @@ Transform:
   m_LocalRotation: {x: -0.0000000031581397, y: 0.000000022147098, z: 0.09983428, w: 0.9950041}
   m_LocalPosition: {x: -0.38574797, y: 0.0000000047683715, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400068}
   m_Father: {fileID: 400080}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400071
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1515,10 +1515,10 @@ Transform:
   m_LocalRotation: {x: -0.00000003541592, y: 0.000000035415916, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.16125676, y: 0.20753036, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400074}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400073
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1531,11 +1531,11 @@ Transform:
   m_LocalRotation: {x: -0.050545752, y: 0.11958493, z: -0.043212928, w: 0.9905944}
   m_LocalPosition: {x: -0.32047874, y: 0, z: 0.000000038146972}
   m_LocalScale: {x: 1.0000001, y: 0.9999999, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400072}
   m_Father: {fileID: 400076}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400075
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1548,11 +1548,11 @@ Transform:
   m_LocalRotation: {x: 0.0000000029752683, y: -0.000000029653435, z: 0.09983344, w: 0.9950042}
   m_LocalPosition: {x: -0.3857479, y: 0.0000000047683715, z: -0.000000038146972}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1.0000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400074}
   m_Father: {fileID: 400082}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400077
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1565,11 +1565,11 @@ Transform:
   m_LocalRotation: {x: -3.0117673e-14, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0.14180587, y: -0.00011291638, z: -3.1318478e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400064}
   m_Father: {fileID: 400084}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400079
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1582,11 +1582,11 @@ Transform:
   m_LocalRotation: {x: -0.049870282, y: 0.9918686, z: 0.007037827, w: -0.11687639}
   m_LocalPosition: {x: 0.09408264, y: 0.00018805891, z: -0.08181119}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400070}
   m_Father: {fileID: 400084}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400081
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1599,11 +1599,11 @@ Transform:
   m_LocalRotation: {x: -0.049869306, y: 0.99186873, z: -0.007034995, w: 0.11687643}
   m_LocalPosition: {x: 0.09408264, y: 0.0001876051, z: 0.08181119}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400076}
   m_Father: {fileID: 400084}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400083
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1616,13 +1616,13 @@ Transform:
   m_LocalRotation: {x: -0.000002080476, y: 0.000000693676, z: -0.000398159, w: 0.99999994}
   m_LocalPosition: {x: -0.094082795, y: -0.00011287512, z: 0.0000001306305}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400082}
   - {fileID: 400080}
   - {fileID: 400078}
   m_Father: {fileID: 400086}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400085
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1635,11 +1635,11 @@ Transform:
   m_LocalRotation: {x: -0.49999964, y: 0.50000036, z: 0.49999964, w: 0.50000036}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400084}
   m_Father: {fileID: 400090}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400087
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1652,10 +1652,10 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.9999998, z: 0.9999998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400096}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400089
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1668,11 +1668,11 @@ Transform:
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0.84964484, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400086}
   m_Father: {fileID: 400096}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400091
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1685,10 +1685,10 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.9999998, z: 0.9999998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400096}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400093
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1701,10 +1701,10 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.9999998, z: 0.9999998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400096}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400095
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1717,6 +1717,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 400094}
   - {fileID: 400092}
@@ -1724,7 +1725,6 @@ Transform:
   - {fileID: 400088}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1002 &400097
 EditorExtensionImpl:
   serializedVersion: 6
@@ -1742,9 +1742,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 9a4ccfb15f7443849ac7cb23e4101098, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -1752,7 +1750,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1777,9 +1775,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 806d681475941e64eab3f7ace7cc134b, type: 2}
   - {fileID: 2100000, guid: af6fd0a94337f1d449e4f84d12b18754, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -1787,7 +1783,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1905,9 +1901,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 7d600226ac552f847a49a071b4e83666, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -1915,7 +1909,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1965,9 +1959,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 894abf262240fd142ae57e78258da135, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -1975,7 +1967,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2014,9 +2006,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 6640d01af8aa9594aa3551e8bcc9e332, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -2024,7 +2014,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2099,6 +2089,4 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: c35e86938f980214caf66a82479c47ad, type: 3}
