@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 970018730}
-  m_IndirectSpecularColor: {r: 0.34738445, g: 0.41477856, b: 0.4978394, a: 1}
+  m_IndirectSpecularColor: {r: 0.34745002, g: 0.41469827, b: 0.49781, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2625,6 +2625,34 @@ BoxCollider:
 Transform:
   m_PrefabParentObject: {fileID: 488786, guid: 9095b2931461ffe4ba72056c71f674c7, type: 2}
   m_PrefabInternal: {fileID: 399725892}
+--- !u!1 &968811583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 968811584}
+  m_Layer: 0
+  m_Name: GunPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &968811584
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 968811583}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.25, y: 2, z: 1.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 189549116}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &970018729
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,9 +3358,9 @@ MonoBehaviour:
   pivotOffset: {x: 0.2, y: 0.7, z: 0}
   camOffset: {x: 0.25, y: 2, z: -3.5}
   closeOffset: {x: 0.35, y: 1.7, z: 0}
-  horizontalAimingSpeed: 800
-  verticalAimingSpeed: 800
-  maxVerticalAngle: 80
+  horizontalAimingSpeed: 400
+  verticalAimingSpeed: 400
+  maxVerticalAngle: 45
   minVerticalAngle: -80
   mouseSensitivity: 0.01
 --- !u!4 &1193545138 stripped
