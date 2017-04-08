@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
     [SerializeField]
     private GameObject bullet;
 
@@ -11,54 +10,58 @@ public class PlayerController : MonoBehaviour
     private CharacterController _cc;
     private Camera _cam;
 
-    private float _speed;
+    private float _speed, _sprintSpeed, _gravity, _jumpspeed;
+    private bool _jumping;
 
     // Use this for initialization
-    private void Start()
-    {
+    private void Start() {
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
         _cc = GetComponent<CharacterController>();
         _cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         _speed = 4.0f;
+        _sprintSpeed = 8.0f;
+        _gravity = 500.0f;
+        _jumpspeed = 300f;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         Aim();
         Move();
         Shoot();
     }
 
-    void Move()
-    {
+    void Move() {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontal, 0, vertical);
 
-        if (!Mathf.Approximately(vertical, 0.0f) || !Mathf.Approximately(horizontal, 0.0f))
-        {
-            //if (_cc.isGrounded)
-            {
-                movement = transform.TransformDirection(movement);
+        if (!Mathf.Approximately(vertical, 0.0f) || !Mathf.Approximately(horizontal, 0.0f)) {
+            movement = transform.TransformDirection(movement);
+            if (Input.GetKey(KeyCode.LeftShift))
+                movement *= _sprintSpeed;
+            else
                 movement *= _speed;
-                //transform.Translate(movement * _speed * Time.deltaTime, Space.Self);
-                _anim.SetBool("Running", true);
-                //if (!_footsteps.isPlaying)
-                //    _footsteps.Play();
-            }
-        }
-        else
-        {
+            //transform.Translate(movement * _speed * Time.deltaTime, Space.Self);
+            _anim.SetBool("Running", true);
+            //if (!_footsteps.isPlaying)
+            //    _footsteps.Play();
+        } else {
             //_rb.velocity = Vector3.zero;
             _anim.SetBool("Running", false);
         }
+        if (_cc.isGrounded && Input.GetKeyDown(KeyCode.Space) && !_jumping)
+            StartCoroutine(Jump());
+        if (_jumping)
+            movement.y += _jumpspeed * Time.deltaTime;
+        else
+            movement.y -= _gravity * Time.deltaTime;
         _cc.Move(movement * Time.deltaTime);
     }
 
-    void Aim()
-    {
+    void Aim() {
         transform.forward = _cam.transform.forward;
         transform.rotation = Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f);
 
@@ -72,16 +75,18 @@ public class PlayerController : MonoBehaviour
         */
     }
 
-    void Shoot()
-    {
-        if (Input.GetMouseButton(0))
-        {
+    void Shoot() {
+        if (Input.GetMouseButton(0)) {
             //Instantiate(bullet, transform.forward, Quaternion.identity);
             //GameObject c = (GameObject)Instantiate(bullet, _gunpos.transform.position, _gunpos.transform.rotation);
             //GameObject c = (GameObject)Instantiate(bullet, _cam.transform.forward, _cam.transform.rotation);
+        } else {
         }
-        else
-        {
-        }
+    }
+
+    IEnumerator Jump() {
+        _jumping = true;
+        yield return new WaitForSeconds(0.35f);
+        _jumping = false;
     }
 }

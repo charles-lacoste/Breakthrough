@@ -126,6 +126,6 @@ public class ShooterGameCamera : MonoBehaviour
     private void OnGUI()
     {
         if (Time.time != 0 && Time.timeScale != 0)
-            GUI.DrawTexture(new Rect(Screen.width / 2 - (crosshair.width * 0.5f), Screen.height / 2 - (crosshair.height * 0.5f), crosshair.width, crosshair.height), crosshair);
+            GUI.DrawTexture(new Rect(Screen.width / 2 - (crosshair.width * 0.5f), (Screen.height - Screen.height / 2) + (crosshair.height * 0.5f), crosshair.width, crosshair.height), crosshair);
     }
 }
