@@ -19,12 +19,13 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        //CanSeePlayer();
+        Scout();
         CanSeePlayer();
     }
 
     private bool CanSeePlayer()
     {
-        transform.LookAt(_player.transform);
         Vector3 dir = _player.transform.position - transform.position;
         dir = new Vector3(dir.x, dir.y + 2f, dir.z);
 
@@ -44,6 +45,15 @@ public class AI : MonoBehaviour
         }
         Debug.Log("Can't see Player");
         return false;
+    }
+
+    public void Scout()
+    {
+        Vector3 dir = (_player.transform.position - transform.position).normalized;
+
+        dir = Vector3.Slerp(transform.forward, dir, _rotationSpeed * Time.deltaTime);
+        dir += transform.position;
+        transform.LookAt(dir);
     }
 
     public void TakeDamage(int value)

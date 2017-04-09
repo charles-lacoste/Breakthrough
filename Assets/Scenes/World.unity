@@ -5539,7 +5539,7 @@ MonoBehaviour:
   _health: 10
   _fieldOfView: 30
   _lookDistance: 30
-  _rotationSpeed: 0
+  _rotationSpeed: 0.25
 --- !u!23 &1833186932
 MeshRenderer:
   m_ObjectHideFlags: 0
