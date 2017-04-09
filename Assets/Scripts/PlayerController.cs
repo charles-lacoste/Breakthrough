@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     private Camera _cam;
     private Transform _gunpoint;
 
-    private float _speed, _sprintSpeed, _gravity, _jumpspeed;
+    private int _health;
+    private float _speed, _sprintSpeed, _gravity, _jumpspeed, _fireRate, _timeLastShot;
     private bool _jumping;
 
     private Ray ray;
@@ -23,10 +24,12 @@ public class PlayerController : MonoBehaviour
         _cc = GetComponent<CharacterController>();
         _cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         _gunpoint = GameObject.Find("GunPoint").transform;
+        _health = 20;
         _speed = 4.0f;
         _sprintSpeed = 8.0f;
         _gravity = 500.0f;
         _jumpspeed = 300f;
+        _fireRate = 0.25f;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -87,14 +90,19 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && Time.time > _fireRate + _timeLastShot)
         {
             ray = _cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             if (Physics.Raycast(ray, out hit, 1000 /*Mathf.Infinity */))
             {
-                Debug.Log(hit.collider.name);
-                Debug.DrawLine(transform.position, hit.transform.position, Color.red);
+                if (hit.collider.tag == "Enemy")
+                {
+                    hit.transform.SendMessage("TakeDamage", 2, SendMessageOptions.DontRequireReceiver);
+                }
+                //Debug.Log(hit.collider.name);
+                //Debug.DrawLine(transform.position, hit.transform.position, Color.red);
             }
+            _timeLastShot = Time.time;
         }
     }
 

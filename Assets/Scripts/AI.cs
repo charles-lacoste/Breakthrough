@@ -6,7 +6,10 @@ public class AI : MonoBehaviour
 {
     public GameObject _player;
 
-    public float _lookDistance;
+    public int _health, _fieldOfView;
+    public float _lookDistance, _rotationSpeed;
+
+    private RaycastHit hit;
 
     // Use this for initialization
     private void Start()
@@ -16,22 +19,52 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debug.Log(CanSeePlayer());
+        CanSeePlayer();
     }
 
     private bool CanSeePlayer()
     {
+        transform.LookAt(_player.transform);
         Vector3 dir = _player.transform.position - transform.position;
-        RaycastHit hit;
         dir = new Vector3(dir.x, dir.y + 2f, dir.z);
-        Debug.DrawRay(transform.position, dir);
-        if (Physics.Raycast(transform.position, dir, out hit, _lookDistance))
+
+        //Debug.DrawRay(transform.position, dir);
+        if (Vector3.Angle(dir, transform.forward) < _fieldOfView * 0.5)
         {
-            if (hit.collider.tag == "Player")
+            if (Physics.Raycast(transform.position, dir, out hit, _lookDistance))
             {
-                return true;
+                if (hit.collider.tag == "Player")
+                {
+                    Debug.Log("Player in FOV");
+                    return true;
+                }
+
+                //return (hit.transform.CompareTag("Player"));
             }
         }
+        Debug.Log("Can't see Player");
         return false;
+    }
+
+    public void TakeDamage(int value)
+    {
+        _health -= value;
+        Debug.Log(_health);
+        if (_health < 1)
+        {
+            Debug.Log("DEAD");
+        }
+    }
+
+    //Draw FOV of enemy
+    private void OnDrawGizmosSelected()
+    {
+        float halfFOV = _fieldOfView * 0.5f;
+        Quaternion leftRayRotation = Quaternion.AngleAxis(-halfFOV, Vector3.up);
+        Quaternion rightRayRotation = Quaternion.AngleAxis(halfFOV, Vector3.up);
+        Vector3 leftRayDirection = leftRayRotation * transform.forward;
+        Vector3 rightRayDirection = rightRayRotation * transform.forward;
+        Gizmos.DrawRay(transform.position, leftRayDirection * _lookDistance);
+        Gizmos.DrawRay(transform.position, rightRayDirection * _lookDistance);
     }
 }
