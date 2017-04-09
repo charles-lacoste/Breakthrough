@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI : MonoBehaviour
+public class Scout : MonoBehaviour
 {
     public GameObject _player;
 
@@ -20,7 +20,7 @@ public class AI : MonoBehaviour
     private void Update()
     {
         //CanSeePlayer();
-        Scout();
+        LookAround();
         CanSeePlayer();
     }
 
@@ -47,7 +47,7 @@ public class AI : MonoBehaviour
         return false;
     }
 
-    public void Scout()
+    public void LookAround()
     {
         Vector3 dir = (_player.transform.position - transform.position).normalized;
 
