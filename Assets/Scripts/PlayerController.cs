@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
     private Rigidbody _rb;
     private Animator _anim;
     private CharacterController _cc;
@@ -17,8 +16,7 @@ public class PlayerController : MonoBehaviour
     private RaycastHit hit;
 
     // Use this for initialization
-    private void Start()
-    {
+    private void Start() {
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
         _cc = GetComponent<CharacterController>();
@@ -34,21 +32,18 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
-    {
+    private void Update() {
         Aim();
         Move();
         Shoot();
     }
 
-    private void Move()
-    {
+    private void Move() {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontal, 0, vertical);
 
-        if (!Mathf.Approximately(vertical, 0.0f) || !Mathf.Approximately(horizontal, 0.0f))
-        {
+        if (!Mathf.Approximately(vertical, 0.0f) || !Mathf.Approximately(horizontal, 0.0f)) {
             movement = transform.TransformDirection(movement);
             if (Input.GetKey(KeyCode.LeftShift))
                 movement *= _sprintSpeed;
@@ -58,9 +53,7 @@ public class PlayerController : MonoBehaviour
             _anim.SetBool("Running", true);
             //if (!_footsteps.isPlaying)
             //    _footsteps.Play();
-        }
-        else
-        {
+        } else {
             //_rb.velocity = Vector3.zero;
             _anim.SetBool("Running", false);
         }
@@ -73,8 +66,7 @@ public class PlayerController : MonoBehaviour
         _cc.Move(movement * Time.deltaTime);
     }
 
-    private void Aim()
-    {
+    private void Aim() {
         transform.forward = _cam.transform.forward;
         transform.rotation = Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f);
 
@@ -88,15 +80,11 @@ public class PlayerController : MonoBehaviour
         */
     }
 
-    private void Shoot()
-    {
-        if (Input.GetMouseButton(0) && Time.time > _fireRate + _timeLastShot)
-        {
+    private void Shoot() {
+        if (Input.GetMouseButton(0) && Time.time > _fireRate + _timeLastShot) {
             ray = _cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-            if (Physics.Raycast(ray, out hit, 1000 /*Mathf.Infinity */))
-            {
-                if (hit.collider.tag == "Enemy")
-                {
+            if (Physics.Raycast(ray, out hit, 1000 /*Mathf.Infinity */)) {
+                if (hit.collider.tag == "Enemy") {
                     hit.transform.SendMessage("TakeDamage", 2, SendMessageOptions.DontRequireReceiver);
                 }
                 //Debug.Log(hit.collider.name);
@@ -106,20 +94,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator Jump()
-    {
+    private IEnumerator Jump() {
         _jumping = true;
         yield return new WaitForSeconds(0.35f);
         _jumping = false;
     }
 
-    public void TakeDamage(int value)
-    {
+    public void TakeDamage(int value) {
         _health -= value;
         Debug.Log(_health);
-        if (_health < 1)
-        {
+        if (_health < 1) {
             Debug.Log("DEAD");
+        }
+    }
+
+    private void OnTriggerEnter(Collider col) {
+        if (col.gameObject.layer == LayerMask.NameToLayer("Death")) {
+            Debug.Log("Dead");
+            transform.position = GameObject.Find("PlayerSpawn").transform.position;
         }
     }
 }

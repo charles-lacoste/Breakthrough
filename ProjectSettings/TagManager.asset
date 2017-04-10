@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - soldier
   - Enemy
+  - Patrol
+  - Sniper Patrol
+  - Reinforcement Spawn
+  - Cover
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - 
   - Rocks
   - Flag
-  - 
+  - Death
   - 
   - 
   - 
