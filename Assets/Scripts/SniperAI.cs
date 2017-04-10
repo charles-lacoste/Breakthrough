@@ -17,7 +17,7 @@ public class SniperAI : MonoBehaviour
     private NavMeshAgent _navAgent;
     private List<Vector3> _recentDestinations;
 
-    private bool _alerted, _lookingLeft, _patrolling;
+    private bool _alerted, _lookingLeft, _patrolling, _inSight;
     private float _timeLastShot, _maxScoutTime;
 
     // Use this for initialization
@@ -31,8 +31,8 @@ public class SniperAI : MonoBehaviour
         _damage = 5;
         _lookDistance = 60;
         _rotationSpeed = 0.2f;
-        _fireRate = 1.5f;
-        _scoutTime = 5;
+        _fireRate = 3f;
+        _scoutTime = 5f;
         _maxScoutTime = _scoutTime;
     }
 
@@ -44,8 +44,9 @@ public class SniperAI : MonoBehaviour
          *      -> Shoot
          *          -> Reload
          *      -> Tries following player
-         *          -> If Out of sight, not alert
-         *          -> Shoot
+         *          -> If Out of sight
+         *              -> Scout, Not alert
+         *          -> Continue shooting
          *
          *  Not Alerted
          *      -> Not patrolling
@@ -61,6 +62,11 @@ public class SniperAI : MonoBehaviour
         if (_alerted)
         {
             Shoot();
+            LookAtTarget();
+            if (!CanSeePlayer())
+            {
+                _alerted = false;
+            }
         }
         else
         {
@@ -104,10 +110,13 @@ public class SniperAI : MonoBehaviour
                     {
                         hit.transform.SendMessage("TakeDamage", _damage, SendMessageOptions.DontRequireReceiver);
                     }
+                    else
+                    {
+                        _alerted = false;
+                    }
                 }
             _timeLastShot = Time.time;
         }
-        _alerted = false;
     }
 
     private bool CanSeePlayer()
@@ -124,7 +133,6 @@ public class SniperAI : MonoBehaviour
                     Debug.Log("Player in FOV");
                     return true;
                 }
-
                 //return (hit.transform.CompareTag("Player"));
             }
         }
@@ -176,7 +184,7 @@ public class SniperAI : MonoBehaviour
     public void LookAtTarget()
     {
         Vector3 dir = (_player.transform.position - transform.position);
-        dir = new Vector3(dir.x, dir.y + 2f, dir.z).normalized;
+        dir = new Vector3(dir.x, dir.y + 1f, dir.z).normalized;
 
         dir = Vector3.Slerp(transform.forward, dir, _rotationSpeed * Time.deltaTime);
         dir += transform.position;
