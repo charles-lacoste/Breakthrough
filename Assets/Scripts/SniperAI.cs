@@ -99,7 +99,7 @@ public class SniperAI : MonoBehaviour
     private void Shoot()
     {
         Vector3 dir = _player.transform.position - transform.position;
-        dir = new Vector3(dir.x, dir.y + 1f, dir.z);
+        dir = new Vector3(dir.x, dir.y + 2.4f, dir.z);
 
         if (Time.time > _fireRate + _timeLastShot)
         {
@@ -122,7 +122,7 @@ public class SniperAI : MonoBehaviour
     private bool CanSeePlayer()
     {
         Vector3 dir = _player.transform.position - transform.position;
-        dir = new Vector3(dir.x, dir.y + 1f, dir.z);
+        dir = new Vector3(dir.x, dir.y + 2.4f, dir.z);
 
         if (Vector3.Angle(new Vector3(dir.x, 0.0f, dir.z), transform.forward) < _fieldOfView * 0.5)
         {

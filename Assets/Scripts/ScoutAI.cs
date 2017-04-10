@@ -9,6 +9,7 @@ public class ScoutAI : MonoBehaviour {
     public float _lookDistance, _rotationSpeed;
     [SerializeField]
     private bool _lookingLeft, _alerted;
+    public float height;
 
     // Use this for initialization
     private void Start() {
@@ -25,7 +26,7 @@ public class ScoutAI : MonoBehaviour {
 
     private bool CanSeePlayer() {
         Vector3 dir = _player.transform.position - transform.position;
-        dir = new Vector3(dir.x, dir.y + 2f, dir.z);
+        dir = new Vector3(dir.x, dir.y + 2.4f, dir.z);
         RaycastHit hit;
         if (Vector3.Angle(new Vector3(dir.x, 0.0f, dir.z), transform.forward) < _fieldOfView * 0.5) {
             if (Physics.Raycast(transform.position, dir, out hit, _lookDistance)) {
@@ -68,7 +69,7 @@ public class ScoutAI : MonoBehaviour {
         Quaternion rightRayRotation = Quaternion.AngleAxis(halfFOV, Vector3.up);
         Vector3 leftRayDirection = leftRayRotation * transform.forward;
         Vector3 rightRayDirection = rightRayRotation * transform.forward;
-        Gizmos.DrawRay(transform.position, leftRayDirection * _lookDistance);
-        Gizmos.DrawRay(transform.position, rightRayDirection * _lookDistance);
+        Gizmos.DrawRay(new Vector3(transform.position.x, transform.position.y + height, transform.position.z), leftRayDirection * _lookDistance);
+        Gizmos.DrawRay(new Vector3(transform.position.x, transform.position.y + height, transform.position.z), rightRayDirection * _lookDistance);
     }
 }
