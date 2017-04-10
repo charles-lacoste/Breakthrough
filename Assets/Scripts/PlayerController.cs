@@ -112,4 +112,14 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.35f);
         _jumping = false;
     }
+
+    public void TakeDamage(int value)
+    {
+        _health -= value;
+        Debug.Log(_health);
+        if (_health < 1)
+        {
+            Debug.Log("DEAD");
+        }
+    }
 }
