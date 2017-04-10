@@ -9,13 +9,9 @@ public class ScoutAI : MonoBehaviour {
     public float _lookDistance, _rotationSpeed;
     [SerializeField]
     private bool _lookingLeft, _alerted;
-    private RaycastHit hit;
-    private Quaternion _leftQ, _rightQ;
 
     // Use this for initialization
     private void Start() {
-        _leftQ = new Quaternion(0, -220.0f, 0, 0);
-        _rightQ = new Quaternion(0, -140.0f, 0, 0);
         _player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -30,7 +26,7 @@ public class ScoutAI : MonoBehaviour {
     private bool CanSeePlayer() {
         Vector3 dir = _player.transform.position - transform.position;
         dir = new Vector3(dir.x, dir.y + 2f, dir.z);
-        
+        RaycastHit hit;
         if (Vector3.Angle(new Vector3(dir.x, 0.0f, dir.z), transform.forward) < _fieldOfView * 0.5) {
             if (Physics.Raycast(transform.position, dir, out hit, _lookDistance)) {
                 if (hit.collider.tag == "Player") {
@@ -43,7 +39,6 @@ public class ScoutAI : MonoBehaviour {
                 }
             }
         }
-        Debug.Log("Can't see Player");
         return false;
     }
 
@@ -61,7 +56,6 @@ public class ScoutAI : MonoBehaviour {
 
     public void TakeDamage(int value) {
         _health -= value;
-        Debug.Log(_health);
         if (_health < 1) {
             Destroy(gameObject);
         }
