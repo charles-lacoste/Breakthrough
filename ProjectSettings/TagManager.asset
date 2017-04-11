@@ -9,6 +9,8 @@ TagManager:
   - Sniper Patrol
   - Reinforcement Spawn
   - Cover
+  - Gas Can
+  - Helicopter
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Rocks
   - Flag
   - Death
-  - 
+  - Collectible
   - 
   - 
   - 

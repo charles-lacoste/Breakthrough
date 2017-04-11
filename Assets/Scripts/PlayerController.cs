@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 
     private Ray ray;
     private RaycastHit hit;
+    private int _collectibles;
 
     // Use this for initialization
     private void Start() {
@@ -112,6 +113,11 @@ public class PlayerController : MonoBehaviour {
         if (col.gameObject.layer == LayerMask.NameToLayer("Death")) {
             Debug.Log("Dead");
             transform.position = GameObject.Find("PlayerSpawn").transform.position;
+        }
+
+        if (col.gameObject.layer == LayerMask.NameToLayer("Collectible")) {
+            _collectibles++;
+            Destroy(col.gameObject);
         }
     }
 }
