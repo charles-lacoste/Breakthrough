@@ -16,12 +16,12 @@ public class ShooterGameCamera : MonoBehaviour
     public Vector3 camOffset = new Vector3(0.0f, 0.7f, -3.4f); // offset of camera from pivotOffset (?) ben0bi
     public Vector3 closeOffset = new Vector3(0.35f, 1.7f, 0.0f); // close offset of camera from pivotOffset (?) ben0bi
 
-    public float horizontalAimingSpeed = 800f; // was way to lame for me (270) ben0bi
-    public float verticalAimingSpeed = 800f;   // --"-- (270) ben0bi
-    public float maxVerticalAngle = 80f;
-    public float minVerticalAngle = -80f;
+    private float horizontalAimingSpeed = 500f; // was way to lame for me (270) ben0bi
+    private float verticalAimingSpeed = 300f;   // --"-- (270) ben0bi
+    private float maxVerticalAngle = 60f;
+    private float minVerticalAngle = -80f;
 
-    public float mouseSensitivity = 0.3f;
+    private float mouseSensitivity = 0.3f;
 
     private float angleH = 0;
     private float angleV = 0;
@@ -54,20 +54,11 @@ public class ShooterGameCamera : MonoBehaviour
     {
         if (Time.deltaTime == 0 || Time.timeScale == 0 || player == null)
             return;
-        // if you want to set up an xbox controller or something, you need to uncomment the
-        // commented axes below in the source.
-        // (unity->edit->Project Settings->input, check the parameters behind the @ below.)
-        // you can set up a new axis in the inspector by typing in a bigger number in the size property at the top.
-        // I removed this, so you can quick and easy add this script to your game. - ben0bi
-        // @joystick 3rd axis
-        angleH += Mathf.Clamp(Input.GetAxis("Mouse X") /* + Input.GetAxis("Horizontal2") */ , -1, 1) * horizontalAimingSpeed * Time.deltaTime;
-        // @joystick 4th axis
-        angleV += Mathf.Clamp(Input.GetAxis("Mouse Y") /* + Input.GetAxis("Vertical2") */ , -1, 1) * verticalAimingSpeed * Time.deltaTime;
+        angleH += Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1) * horizontalAimingSpeed * Time.deltaTime;
+        angleV += Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1) * verticalAimingSpeed * Time.deltaTime;
         // limit vertical angle
         angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
 
-        // Before changing camera, store the prev aiming distance.
-        // If we're aiming at nothing (the sky), we'll keep this distance.
         float prevDist = (aimTarget.position - cam.position).magnitude;
 
         // Set aim rotation
@@ -119,6 +110,10 @@ public class ShooterGameCamera : MonoBehaviour
     public void SetTarget(Transform t)
     {
         player = t;
+    }
+
+    public void SetHorizontalSensitivity(float s) {
+        horizontalAimingSpeed = s;
     }
 
     // uncomment this if you want to have a crosshair - ben0bi

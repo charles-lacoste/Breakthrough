@@ -35,15 +35,18 @@ public class InfantryAI : MonoBehaviour {
         if (_attacking) {
             LookAtTarget();
             Shoot();
-        } else if (_getToCover && _agent.remainingDistance == 0) {
+        } else if (_getToCover && _agent.remainingDistance < 0.5f) {
+            _agent.ResetPath();
             _getToCover = false;
             _agent.speed = 7;
             _patrol = true;
             if (_ammo == 0)
                 StartCoroutine(Reload());
         } else if (!_reloading) {
-            if (_patrol && _agent.remainingDistance == 0)
+            if (_patrol && _agent.remainingDistance < 0.5f) {
+                _agent.ResetPath();
                 GoToClosestPatrolPoint();
+            }
             if (CanSeePlayer()) {
                 _agent.Stop();
                 _patrol = false;
@@ -117,7 +120,7 @@ public class InfantryAI : MonoBehaviour {
         }
         _agent.SetDestination(closestPoint);
         _recentPatrolPoints.Add(closestPoint);
-        if (_recentPatrolPoints.Count > 4)
+        if (_recentPatrolPoints.Count > 5)
             _recentPatrolPoints.RemoveAt(0);
     }
 

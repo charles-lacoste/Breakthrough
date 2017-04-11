@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
     private Animator _anim;
     private CharacterController _cc;
     private Camera _cam;
+    private ShooterGameCamera _camScript;
     private Transform _gunpoint;
 
     private int _health;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour {
         _rb = GetComponent<Rigidbody>();
         _cc = GetComponent<CharacterController>();
         _cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        _camScript = _cam.gameObject.GetComponent<ShooterGameCamera>();
         _gunpoint = GameObject.Find("GunPoint").transform;
         _health = 20;
         _speed = 4.0f;
@@ -70,15 +72,13 @@ public class PlayerController : MonoBehaviour {
     private void Aim() {
         transform.forward = _cam.transform.forward;
         transform.rotation = Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f);
-
-        /*
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.z, 0);
-        Vector3 lookPos = Camera.main.ScreenToWorldPoint(mousePos);
-        lookPos = lookPos - transform.position;
-        float angle = Mathf.Atan2(lookPos.z, lookPos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.down); // Turns Right
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.up); //Turns Left
-        */
+        if (Input.GetMouseButton(1)) {
+            _cam.fieldOfView = 20;
+            _camScript.SetHorizontalSensitivity(200f);
+        } else {
+            _cam.fieldOfView = 60;
+            _camScript.SetHorizontalSensitivity(500f);
+        }
     }
 
     private void Shoot() {
@@ -109,15 +109,18 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public int CollectibleCount() {
+        return _collectibles;
+    }
+
     private void OnTriggerEnter(Collider col) {
         if (col.gameObject.layer == LayerMask.NameToLayer("Death")) {
             Debug.Log("Dead");
             transform.position = GameObject.Find("PlayerSpawn").transform.position;
-        }
-
-        if (col.gameObject.layer == LayerMask.NameToLayer("Collectible")) {
+        } else if (col.gameObject.layer == LayerMask.NameToLayer("Collectible")) {
             _collectibles++;
             Destroy(col.gameObject);
-        }
+        } else if (_collectibles == 3 && col.gameObject.tag == "Helicopter")
+            GameController.gc.EndGame(true);
     }
 }

@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 136132885353348698}
   - component: {fileID: 114180573541024082}
   - component: {fileID: 195945641092544268}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Infantry
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1056,7 +1056,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1280620980248784}
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

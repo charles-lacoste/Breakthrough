@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class ScoutAI : MonoBehaviour {
     private GameObject _player;
-
-    public int _health, _fieldOfView;
-    public float _lookDistance, _rotationSpeed;
+    private int _health, _fieldOfView;
+    private float _lookDistance, _rotationSpeed;
     [SerializeField]
     private bool _lookingLeft, _alerted;
-    public float height;
+    private float height;
 
     // Use this for initialization
     private void Start() {
+        _lookingLeft = false;
         _player = GameObject.FindGameObjectWithTag("Player");
+        _health = 4;
     }
 
     // Update is called once per frame
@@ -60,6 +61,10 @@ public class ScoutAI : MonoBehaviour {
         if (_health < 1) {
             Destroy(gameObject);
         }
+    }
+
+    public void LookLeft() {
+        _lookingLeft = true;
     }
 
     //Draw FOV of enemy
