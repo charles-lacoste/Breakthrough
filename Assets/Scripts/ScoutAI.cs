@@ -34,7 +34,7 @@ public class ScoutAI : MonoBehaviour {
                     //Call sniper's alert
                     SniperAI[] snipers = FindObjectsOfType<SniperAI>();
                     foreach (SniperAI s in snipers) {
-                        //call s.Alert();
+                        s.Alert();
                     }
                     return true;
                 }

@@ -38,7 +38,6 @@ public class InfantryAI : MonoBehaviour {
         } else if (_getToCover && _agent.remainingDistance == 0) {
             _getToCover = false;
             _agent.speed = 7;
-            _agent.angularSpeed = 120;
             _patrol = true;
             if (_ammo == 0)
                 StartCoroutine(Reload());
@@ -54,7 +53,12 @@ public class InfantryAI : MonoBehaviour {
         }
     }
 
-    void Shoot() {
+    public void Alert() {
+        _patrol = false;
+        _agent.SetDestination(_player.transform.position);
+    }
+
+    private void Shoot() {
         if (Time.time > _fireRate + _timeLastShot) {
             Vector3 dir = _player.transform.position - transform.position;
             dir = new Vector3(dir.x, dir.y + 2f, dir.z);
@@ -82,7 +86,7 @@ public class InfantryAI : MonoBehaviour {
         }
     }
 
-    IEnumerator Reload() {
+    private IEnumerator Reload() {
         _reloading = true;
         yield return new WaitForSeconds(2.0f);
         _ammo = 10;
@@ -104,7 +108,7 @@ public class InfantryAI : MonoBehaviour {
         return false;
     }
 
-    void GoToClosestPatrolPoint() {
+    private void GoToClosestPatrolPoint() {
         Vector3 closestPoint = new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity);
         foreach (GameObject p in _patrolPoints) {
             if (Vector3.Distance(p.transform.position, transform.position) < Vector3.Distance(closestPoint, transform.position)
@@ -117,18 +121,23 @@ public class InfantryAI : MonoBehaviour {
             _recentPatrolPoints.RemoveAt(0);
     }
 
-    void GetToCover() {
+    private void GetToCover() {
         _agent.speed = 8f;
         _getToCover = true;
         Vector3 closestPoint = new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity);
+        Vector3 dir = _player.transform.position - transform.position;
+        RaycastHit hit;
         foreach (GameObject p in _coverPoints) {
-            if (Vector3.Distance(p.transform.position, transform.position) < Vector3.Distance(closestPoint, transform.position))
-                closestPoint = p.transform.position;
+            if (Vector3.Distance(p.transform.position, transform.position) < Vector3.Distance(closestPoint, transform.position)) {
+                Physics.Raycast(transform.position, dir, out hit);
+                if (hit.collider.tag != "Player")
+                    closestPoint = p.transform.position;
+            }
         }
         _agent.SetDestination(closestPoint);
     }
 
-    public void LookAtTarget() {
+    private void LookAtTarget() {
         Vector3 dir = _player.transform.position - transform.position;
         dir = new Vector3(dir.x, dir.y + 2f, dir.z);
         dir = Vector3.Slerp(transform.forward, dir, _rotationSpeed * Time.deltaTime);
@@ -138,7 +147,7 @@ public class InfantryAI : MonoBehaviour {
 
     public void TakeDamage(int value) {
         _health -= value;
-        if (_health < _health/2 && !_getToCover)
+        if (_health < _health / 2 && !_getToCover)
             GetToCover();
         if (_health < 1) {
             Destroy(gameObject);
