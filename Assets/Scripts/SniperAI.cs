@@ -36,7 +36,6 @@ public class SniperAI : MonoBehaviour
         _maxScoutTime = _scoutTime;
     }
 
-    //If going to cover, raycast towards player, if sees then go to next cover
     // Update is called once per frame
     private void Update()
     {
@@ -82,11 +81,12 @@ public class SniperAI : MonoBehaviour
                     if (CanSeePlayer())
                     {
                         Alert();
-                        //InfantryAI[] infantries = FindObjectsOfType<InfantryAI>();
-                        //foreach(var i in infantries)
-                        //{
-                        //    i.Alert();
-                        //}
+                        Collider[] infantries = Physics.OverlapSphere(transform.position, _lookDistance * 0.5f, LayerMask.NameToLayer("Infantry"));
+                        foreach (var i in infantries)
+                        {
+                            i.GetComponent<InfantryAI>().Alert();
+                        }
+
                         _scoutTime = _maxScoutTime;
                         return;
                     }
@@ -108,7 +108,7 @@ public class SniperAI : MonoBehaviour
                 {
                     if (hit.collider.tag == "Player")
                     {
-                        hit.transform.SendMessage("TakeDamage", _damage, SendMessageOptions.DontRequireReceiver);
+                        hit.transform.GetComponent<PlayerController>().TakeDamage(_damage);
                     }
                     else
                     {
@@ -128,15 +128,9 @@ public class SniperAI : MonoBehaviour
         {
             if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), dir, out hit, _lookDistance))
             {
-                if (hit.collider.tag == "Player")
-                {
-                    Debug.Log("Player in FOV");
-                    return true;
-                }
-                //return (hit.transform.CompareTag("Player"));
+                return (hit.transform.CompareTag("Player"));
             }
         }
-        Debug.Log("Can't see Player");
         return false;
     }
 
@@ -160,7 +154,7 @@ public class SniperAI : MonoBehaviour
             _recentDestinations.RemoveAt(0);
     }
 
-    private bool DestinationReached()
+    public bool DestinationReached()
     {
         return _navAgent.remainingDistance == 0;
     }
@@ -194,7 +188,6 @@ public class SniperAI : MonoBehaviour
     public void TakeDamage(int value)
     {
         _health -= value;
-        Debug.Log(_health);
         if (_health < 1)
         {
             Destroy(gameObject);
