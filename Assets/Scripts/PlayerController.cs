@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
     private Rigidbody _rb;
@@ -17,12 +18,18 @@ public class PlayerController : MonoBehaviour {
     private RaycastHit hit;
     private int _collectibles;
 
+    [SerializeField]
+    private AudioSource _walkingSrc, _shootingSrc, _auxSrc;
+    [SerializeField]
+    private AudioClip _hitmarkerFx, _reloadFx, _shootFx, _hurtFx, _jumpFx, _footStep;
+
     // Use this for initialization
     private void Start() {
+
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
         _cc = GetComponent<CharacterController>();
-        _cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        _cam = GetComponentInChildren<Camera>();//GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         _camScript = _cam.gameObject.GetComponent<ShooterGameCamera>();
         _gunpoint = GameObject.Find("GunPoint").transform;
         _health = 20;
@@ -31,6 +38,12 @@ public class PlayerController : MonoBehaviour {
         _gravity = 500.0f;
         _jumpspeed = 300f;
         _fireRate = 0.25f;
+        AudioSource[] audioSrcArray = GetComponentsInChildren<AudioSource>();
+        _walkingSrc = audioSrcArray[0];
+        _shootingSrc = audioSrcArray[1];
+        _auxSrc = audioSrcArray[2];
+        _shootingSrc.clip = _shootFx;
+
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -48,6 +61,10 @@ public class PlayerController : MonoBehaviour {
 
         if (!Mathf.Approximately(vertical, 0.0f) || !Mathf.Approximately(horizontal, 0.0f)) {
             movement = transform.TransformDirection(movement);
+            if (!_walkingSrc.isPlaying) {
+                _walkingSrc.clip = _footStep;
+                _walkingSrc.Play();
+            }
             if (Input.GetKey(KeyCode.LeftShift))
                 movement *= _sprintSpeed;
             else
@@ -83,9 +100,13 @@ public class PlayerController : MonoBehaviour {
 
     private void Shoot() {
         if (Input.GetMouseButton(0) && Time.time > _fireRate + _timeLastShot) {
+            _shootingSrc.Play();
             ray = _cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             if (Physics.Raycast(ray, out hit, 1000 /*Mathf.Infinity */)) {
                 if (hit.collider.tag == "Enemy") {
+                    _auxSrc.clip = _hitmarkerFx;
+                    if (!_auxSrc.isPlaying)
+                        _auxSrc.Play();
                     hit.transform.SendMessage("TakeDamage", 2, SendMessageOptions.DontRequireReceiver);
                 }
                 //Debug.Log(hit.collider.name);
@@ -97,11 +118,17 @@ public class PlayerController : MonoBehaviour {
 
     private IEnumerator Jump() {
         _jumping = true;
+        _auxSrc.clip = _jumpFx;
+        if (!_auxSrc.isPlaying)
+            _auxSrc.Play();
         yield return new WaitForSeconds(0.35f);
         _jumping = false;
     }
 
     public void TakeDamage(int value) {
+        _auxSrc.clip = _hurtFx;
+        if (!_auxSrc.isPlaying)
+            _auxSrc.Play();
         _health -= value;
         Debug.Log(_health);
         if (_health < 1) {
@@ -115,6 +142,8 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider col) {
         if (col.gameObject.layer == LayerMask.NameToLayer("Death")) {
+            _auxSrc.clip = _hurtFx;
+            _auxSrc.Play();
             Debug.Log("Dead");
             transform.position = GameObject.Find("PlayerSpawn").transform.position;
         } else if (col.gameObject.layer == LayerMask.NameToLayer("Collectible")) {
