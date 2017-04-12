@@ -5,32 +5,30 @@ using UnityEngine;
 public class ScoutAI : MonoBehaviour {
     private GameObject _player;
     private int _health, _fieldOfView;
-    private float _lookDistance, _rotationSpeed;
-    [SerializeField]
+    private float _lookDistance;
     private bool _lookingLeft, _alerted;
-    private float height;
 
     // Use this for initialization
     private void Start() {
         _lookingLeft = false;
         _player = GameObject.FindGameObjectWithTag("Player");
         _health = 4;
+        _fieldOfView = 45;
+        _lookDistance = 50;
     }
 
     // Update is called once per frame
     private void Update() {
-        if (!_alerted) {
-            LookAround();
+        LookAround();
+        if (!_alerted)
             _alerted = CanSeePlayer();
-        }
     }
 
     private bool CanSeePlayer() {
         Vector3 dir = _player.transform.position - transform.position;
-        dir = new Vector3(dir.x, dir.y + 2.4f, dir.z);
         RaycastHit hit;
         if (Vector3.Angle(new Vector3(dir.x, 0.0f, dir.z), transform.forward) < _fieldOfView * 0.5) {
-            if (Physics.Raycast(transform.position, dir, out hit, _lookDistance)) {
+            if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 2.2f, transform.position.z), dir, out hit, _lookDistance)) {
                 if (hit.collider.tag == "Player") {
                     //Call sniper's alert
                     SniperAI[] snipers = FindObjectsOfType<SniperAI>();
@@ -65,16 +63,5 @@ public class ScoutAI : MonoBehaviour {
 
     public void LookLeft() {
         _lookingLeft = true;
-    }
-
-    //Draw FOV of enemy
-    private void OnDrawGizmosSelected() {
-        float halfFOV = _fieldOfView * 0.5f;
-        Quaternion leftRayRotation = Quaternion.AngleAxis(-halfFOV, Vector3.up);
-        Quaternion rightRayRotation = Quaternion.AngleAxis(halfFOV, Vector3.up);
-        Vector3 leftRayDirection = leftRayRotation * transform.forward;
-        Vector3 rightRayDirection = rightRayRotation * transform.forward;
-        Gizmos.DrawRay(new Vector3(transform.position.x, transform.position.y + height, transform.position.z), leftRayDirection * _lookDistance);
-        Gizmos.DrawRay(new Vector3(transform.position.x, transform.position.y + height, transform.position.z), rightRayDirection * _lookDistance);
     }
 }

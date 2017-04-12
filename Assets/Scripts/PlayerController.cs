@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
-    private Rigidbody _rb;
     private Animator _anim;
     private CharacterController _cc;
     private Camera _cam;
@@ -23,13 +22,11 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private AudioClip _hitmarkerFx, _reloadFx, _shootFx, _hurtFx, _jumpFx, _footStep;
 
-    // Use this for initialization
     private void Start() {
 
         _anim = GetComponent<Animator>();
-        _rb = GetComponent<Rigidbody>();
         _cc = GetComponent<CharacterController>();
-        _cam = GetComponentInChildren<Camera>();//GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        _cam = GetComponentInChildren<Camera>();
         _camScript = _cam.gameObject.GetComponent<ShooterGameCamera>();
         _gunpoint = GameObject.Find("GunPoint").transform;
         _health = 20;
@@ -47,7 +44,6 @@ public class PlayerController : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
     private void Update() {
         Aim();
         Move();
@@ -69,12 +65,10 @@ public class PlayerController : MonoBehaviour {
                 movement *= _sprintSpeed;
             else
                 movement *= _speed;
-            //transform.Translate(movement * _speed * Time.deltaTime, Space.Self);
             _anim.SetBool("Running", true);
             //if (!_footsteps.isPlaying)
             //    _footsteps.Play();
         } else {
-            //_rb.velocity = Vector3.zero;
             _anim.SetBool("Running", false);
         }
         if (_cc.isGrounded && Input.GetKeyDown(KeyCode.Space) && !_jumping)
@@ -102,15 +96,13 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetMouseButton(0) && Time.time > _fireRate + _timeLastShot) {
             _shootingSrc.Play();
             ray = _cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-            if (Physics.Raycast(ray, out hit, 1000 /*Mathf.Infinity */)) {
+            if (Physics.Raycast(ray, out hit, 1000)) {
                 if (hit.collider.tag == "Enemy") {
                     _auxSrc.clip = _hitmarkerFx;
                     if (!_auxSrc.isPlaying)
                         _auxSrc.Play();
                     hit.transform.SendMessage("TakeDamage", 2, SendMessageOptions.DontRequireReceiver);
                 }
-                //Debug.Log(hit.collider.name);
-                //Debug.DrawLine(transform.position, hit.transform.position, Color.red);
             }
             _timeLastShot = Time.time;
         }
@@ -130,9 +122,8 @@ public class PlayerController : MonoBehaviour {
         if (!_auxSrc.isPlaying)
             _auxSrc.Play();
         _health -= value;
-        Debug.Log(_health);
         if (_health < 1) {
-            Debug.Log("DEAD");
+            GameController.gc.EndGame(false);
         }
     }
 
@@ -144,7 +135,6 @@ public class PlayerController : MonoBehaviour {
         if (col.gameObject.layer == LayerMask.NameToLayer("Death")) {
             _auxSrc.clip = _hurtFx;
             _auxSrc.Play();
-            Debug.Log("Dead");
             transform.position = GameObject.Find("PlayerSpawn").transform.position;
         } else if (col.gameObject.layer == LayerMask.NameToLayer("Collectible")) {
             _collectibles++;

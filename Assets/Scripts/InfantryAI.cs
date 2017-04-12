@@ -4,23 +4,20 @@ using UnityEngine;
 using UnityEngine.AI;
 public class InfantryAI : MonoBehaviour {
     private NavMeshAgent _agent;
-    private bool _patrol, _getToCover, _attacking, _reloading;
-    private List<GameObject> _patrolPoints, _coverPoints;
+    public bool _patrol, _getToCover, _attacking, _reloading, _lookAtPlayer;
     private List<Vector3> _recentPatrolPoints;
     private int _health, _damage, _ammo;
     private float _lookDistance, _fieldOfView, _rotationSpeed, _timeLastShot, _fireRate, _waitTime, _lastSpotted;
     private GameObject _player;
+    private Animator _anim;
 
     void Start() {
         _player = GameObject.FindGameObjectWithTag("Player");
+        _anim = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         _recentPatrolPoints = new List<Vector3>();
-        GameObject[] p = GameObject.FindGameObjectsWithTag("Patrol");
-        _patrolPoints = new List<GameObject>(p);
-        GameObject[] c = GameObject.FindGameObjectsWithTag("Cover");
-        _coverPoints = new List<GameObject>(c);
         _patrol = true;
-        _getToCover = false;
+        _getToCover = _reloading = false;
         _health = 10;
         _fireRate = 1.0f;
         _fieldOfView = 100.0f;
@@ -32,26 +29,31 @@ public class InfantryAI : MonoBehaviour {
     }
 
     void Update() {
-        if (_attacking) {
-            LookAtTarget();
-            Shoot();
-        } else if (_getToCover && _agent.remainingDistance < 0.5f) {
-            _agent.ResetPath();
-            _getToCover = false;
-            _agent.speed = 7;
-            _patrol = true;
-            if (_ammo == 0)
-                StartCoroutine(Reload());
-        } else if (!_reloading) {
-            if (_patrol && _agent.remainingDistance < 0.5f) {
+        if (!GameController.gc.IsGamePaused()) {
+            if (_attacking) {
+                LookAtTarget();
+                Shoot();
+            } else if (_getToCover && _agent.remainingDistance < 0.5f) {
                 _agent.ResetPath();
-                GoToClosestPatrolPoint();
-            }
-            if (CanSeePlayer()) {
-                _agent.Stop();
-                _patrol = false;
-                _attacking = true;
-                _timeLastShot = Time.time; //Wait before shooting, give player a chance
+                _getToCover = false;
+                _agent.speed = 7;
+                _patrol = true;
+                if (_ammo == 0)
+                    StartCoroutine(Reload());
+            } else if (_lookAtPlayer) {
+                LookAtPlayer();
+            } else if (!_reloading) {
+                if (_patrol && _agent.remainingDistance < 0.5f) {
+                    _agent.ResetPath();
+                    GoToClosestPatrolPoint();
+                }
+                if (CanSeePlayer()) {
+                    _agent.Stop();
+                    _anim.SetBool("Running", false);
+                    _patrol = false;
+                    _attacking = true;
+                    _timeLastShot = Time.time; //Wait before shooting, give player a chance
+                }
             }
         }
     }
@@ -85,6 +87,7 @@ public class InfantryAI : MonoBehaviour {
                 _attacking = false;
                 _ammo = 10; //Assume reload while patrolling
                 _agent.Resume();
+                _anim.SetBool("Running", true);
             }
         }
     }
@@ -111,14 +114,32 @@ public class InfantryAI : MonoBehaviour {
         return false;
     }
 
+    private void LookAtPlayer() {
+        transform.LookAt(_player.transform.position);
+        Vector3 dir = _player.transform.position - transform.position;
+        dir = new Vector3(dir.x, dir.y + 2f, dir.z);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, dir, out hit, 100)) {
+            if (hit.collider.tag == "Player") {
+                _lastSpotted = Time.time;
+            }
+        }
+        if (Time.time > _waitTime + _lastSpotted) {
+            _lookAtPlayer = false;
+            _agent.Resume();
+            _anim.SetBool("Running", true);
+        }
+    }
+
     private void GoToClosestPatrolPoint() {
         Vector3 closestPoint = new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity);
-        foreach (GameObject p in _patrolPoints) {
+        foreach (GameObject p in GameController.gc.GetPatrolPoints()) {
             if (Vector3.Distance(p.transform.position, transform.position) < Vector3.Distance(closestPoint, transform.position)
                 && !_recentPatrolPoints.Contains(p.transform.position))
                 closestPoint = p.transform.position;
         }
         _agent.SetDestination(closestPoint);
+        _anim.SetBool("Running", true);
         _recentPatrolPoints.Add(closestPoint);
         if (_recentPatrolPoints.Count > 5)
             _recentPatrolPoints.RemoveAt(0);
@@ -130,7 +151,7 @@ public class InfantryAI : MonoBehaviour {
         Vector3 closestPoint = new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity);
         Vector3 dir = _player.transform.position - transform.position;
         RaycastHit hit;
-        foreach (GameObject p in _coverPoints) {
+        foreach (GameObject p in GameController.gc.GetCoverPoints()) {
             if (Vector3.Distance(p.transform.position, transform.position) < Vector3.Distance(closestPoint, transform.position)) {
                 Physics.Raycast(transform.position, dir, out hit);
                 if (hit.collider.tag != "Player")
@@ -150,9 +171,14 @@ public class InfantryAI : MonoBehaviour {
 
     public void TakeDamage(int value) {
         _health -= value;
+        _lookAtPlayer = true;
+        _lastSpotted = Time.time;
+        _agent.Stop();
+        _anim.SetBool("Running", false);
         if (_health < _health / 2 && !_getToCover)
             GetToCover();
         if (_health < 1) {
+            GameController.gc.RemoveInfantry(gameObject);
             Destroy(gameObject);
         }
     }
