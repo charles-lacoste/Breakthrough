@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,29 +8,33 @@ public class SniperAI : MonoBehaviour
     private int _health, _fieldOfView, _damage;
 
     [SerializeField]
-    private float _lookDistance, _rotationSpeed, _fireRate, _scoutTime;
+    private float _lookDistance, _rotationSpeed, _fireRate, _scoutTime, _alertTime;
 
     private GameObject _player;
     private NavMeshAgent _navAgent;
+    private Animator _anim;
     private List<Vector3> _recentDestinations;
 
-    private bool _alerted, _alertedByScout, _lookingLeft, _patrolling, _inSight;
-    private float _timeLastShot, _maxScoutTime;
+    private bool _alerted, _alertedByScout, _patrolling, _gotShot;
+    private float _timeLastShot, _maxScoutTime, _maxAlertTime;
 
     // Use this for initialization
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _navAgent = GetComponent<NavMeshAgent>();
+        _anim = GetComponent<Animator>();
         _recentDestinations = new List<Vector3>();
         _health = 10;
         _fieldOfView = 20;
         _damage = 5;
-        _lookDistance = 80;
+        _lookDistance = 60;
         _rotationSpeed = 0.2f;
         _fireRate = 3f;
         _scoutTime = 10f;
         _maxScoutTime = _scoutTime;
+        _alertTime = 2f;
+        _maxAlertTime = _alertTime;
     }
 
     // Update is called once per frame
@@ -43,19 +45,27 @@ public class SniperAI : MonoBehaviour
          *      -> Keep looking at target
          *          -> Shoot
          *  Alerted
-         *      -> Shoot
-         *      -> Tries following player
-         *          -> If Out of sight
-         *              -> Scout, Not alert
-         *          -> Continue shooting
+         *      -> Look at the player
+         *          -> If can see player
+         *              -> Shoot
+         *          -> If out of sight
+         *              -> Scout
+         *      -> Got shot
+         *          -> Stays alert for few seconds
+         *              -> After few seconds not alert
+
          *  Not Alerted
          *      -> Not patrolling
          *          -> Patrol to points
+         *              -> Got shot
+         *                  -> Goes to alert
          *      -> Done patrolling
-         *          -> LookAround
+         *          -> Scout for x seconds
          *              -> Finds Player
          *                  -> Alerted
          *                      ->Sends Alert to Infantry within radius
+         *              -> Goes back to patrol
+         *
          *
          *
          */
@@ -66,9 +76,23 @@ public class SniperAI : MonoBehaviour
         }
         else if (_alerted)
         {
-            Shoot();
             LookAtTarget();
-            if (!CanSeePlayer())
+            if (CanSeePlayer())
+            {
+                Shoot();
+            }
+            else if (_gotShot && _alertTime < 0)
+            {
+                _alerted = false;
+                _gotShot = false;
+                _alertTime = _maxAlertTime;
+                return;
+            }
+            else if (_gotShot)
+            {
+                _alertTime -= Time.deltaTime;
+            }
+            else
             {
                 _alerted = false;
             }
@@ -77,11 +101,19 @@ public class SniperAI : MonoBehaviour
         {
             if (_scoutTime < 0)
             {
+                _anim.SetBool("Running", true);
                 Patrol();
                 if (CanSeePlayer())
                 {
                     _alerted = true;
+                    _anim.SetBool("Running", false);
                     _scoutTime = _maxScoutTime;
+                    return;
+                }
+                else if (_gotShot)
+                {
+                    _navAgent.SetDestination(transform.position);
+                    _anim.SetBool("Running", false);
                     return;
                 }
             }
@@ -89,6 +121,7 @@ public class SniperAI : MonoBehaviour
             {
                 if (DestinationReached())
                 {
+                    _anim.SetBool("Running", false);
                     LookAround();
                     if (CanSeePlayer())
                     {
@@ -173,20 +206,6 @@ public class SniperAI : MonoBehaviour
 
     public void LookAround()
     {
-        /*
-        if (_lookingLeft)
-        {
-            transform.Rotate(0, -0.25f, 0);
-            if (transform.eulerAngles.y > 120.0f && transform.eulerAngles.y < 130.0f)
-                _lookingLeft = false;
-        }
-        else
-        {
-            transform.Rotate(0, 0.25f, 0);
-            if (transform.eulerAngles.y > 220.0f && transform.eulerAngles.y < 230.0f)
-                _lookingLeft = true;
-        }
-        */
         float startRot = transform.eulerAngles.y;
         float endRot = startRot + 360.0f;
 
@@ -211,6 +230,9 @@ public class SniperAI : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        _alerted = true;
+        _gotShot = true;
+        transform.LookAt(_player.transform);
     }
 
     public void Alert()
