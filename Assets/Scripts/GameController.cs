@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour {
     private GameObject _sniper, _infantry, _scout, _player, _gas;
     [SerializeField]
     private Transform _playerSpawn;
+    [SerializeField]
+    private GameObject _explosion;
     private bool _paused;
 
     void Awake() {
@@ -31,6 +33,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void StartGame() {
+        GetComponent<AudioListener>().enabled = false;
         _mainMenuCanvas.gameObject.SetActive(false);
         _menuCam.gameObject.SetActive(false);
         Instantiate(_player, _playerSpawn.position, Quaternion.identity);
@@ -101,6 +104,10 @@ public class GameController : MonoBehaviour {
 
     public GameObject[] GetCoverPoints() {
         return _coverPoints;
+    }
+
+    public GameObject GetExplosion() {
+        return _explosion;
     }
     #endregion
 }

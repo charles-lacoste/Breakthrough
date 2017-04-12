@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 970018730}
-  m_IndirectSpecularColor: {r: 0.29697832, g: 0.24607518, b: 0.23221672, a: 1}
+  m_IndirectSpecularColor: {r: 0.2968713, g: 0.24607372, b: 0.23193666, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2970,6 +2970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404318937}
   - component: {fileID: 404318935}
+  - component: {fileID: 404318936}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -3094,6 +3095,14 @@ MonoBehaviour:
   _player: {fileID: 1810640513417598, guid: b0ac434b5ee408a4fabed8d1b6abe38f, type: 2}
   _gas: {fileID: 1961205972688006, guid: c7ef532dc8a821343b9ad6d07f52f94c, type: 2}
   _playerSpawn: {fileID: 1349683052}
+  _explosion: {fileID: 1322817984540080, guid: 5e0c5f23471d4784993b860c50084683, type: 2}
+--- !u!81 &404318936
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 404318934}
+  m_Enabled: 1
 --- !u!4 &404318937
 Transform:
   m_ObjectHideFlags: 0
@@ -5898,7 +5907,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4371580222686018, guid: ef317a23ffb80c940aedf2cbc32c67b5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 55.671
+      value: 50.45
       objectReference: {fileID: 0}
     - target: {fileID: 4371580222686018, guid: ef317a23ffb80c940aedf2cbc32c67b5, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5906,7 +5915,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4371580222686018, guid: ef317a23ffb80c940aedf2cbc32c67b5, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 229.905
+      value: 241.94
       objectReference: {fileID: 0}
     - target: {fileID: 4371580222686018, guid: ef317a23ffb80c940aedf2cbc32c67b5, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7010,7 +7019,7 @@ Transform:
   m_PrefabInternal: {fileID: 867712026}
   m_GameObject: {fileID: 1068598967}
   m_LocalRotation: {x: 0.28041506, y: -0.3552085, z: 0.112599954, w: 0.88459915}
-  m_LocalPosition: {x: 55.671, y: 54.27, z: 229.905}
+  m_LocalPosition: {x: 50.45, y: 54.27, z: 241.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8347,6 +8356,7 @@ MonoBehaviour:
   _player: {fileID: 0}
   _gas: {fileID: 0}
   _playerSpawn: {fileID: 0}
+  _explosion: {fileID: 0}
 --- !u!1 &1247645876 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 125700, guid: 81ccfd8ba989ddf46bf1c014e18ef26c, type: 2}

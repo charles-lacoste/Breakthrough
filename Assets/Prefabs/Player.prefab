@@ -1351,6 +1351,7 @@ MonoBehaviour:
   _hurtFx: {fileID: 8300000, guid: c30ba35b5774c1d4eadbe47b87141b8a, type: 3}
   _jumpFx: {fileID: 8300000, guid: 69d98d0e1c182154490cddc7f9bfa028, type: 3}
   _footStep: {fileID: 8300000, guid: fc8da02e95435406f89db024451a0bb8, type: 3}
+  _pickupFx: {fileID: 8300000, guid: 0e77acd3ec753c94495415da3e66a625, type: 3}
 --- !u!124 &124681807223148718
 Behaviour:
   m_ObjectHideFlags: 1

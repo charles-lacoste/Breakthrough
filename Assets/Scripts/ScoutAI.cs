@@ -57,6 +57,7 @@ public class ScoutAI : MonoBehaviour {
     public void TakeDamage(int value) {
         _health -= value;
         if (_health < 1) {
+            Instantiate(GameController.gc.GetExplosion(), new Vector3(transform.position.x, transform.position.y + 2.0f, transform.position.z), Quaternion.identity);
             Destroy(gameObject);
         }
     }

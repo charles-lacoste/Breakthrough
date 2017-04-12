@@ -179,6 +179,7 @@ public class InfantryAI : MonoBehaviour {
             GetToCover();
         if (_health < 1) {
             GameController.gc.RemoveInfantry(gameObject);
+            Instantiate(GameController.gc.GetExplosion(), new Vector3(transform.position.x, transform.position.y + 2.0f, transform.position.z), Quaternion.identity);
             Destroy(gameObject);
         }
     }

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private AudioSource _walkingSrc, _shootingSrc, _auxSrc;
     [SerializeField]
-    private AudioClip _hitmarkerFx, _reloadFx, _shootFx, _hurtFx, _jumpFx, _footStep;
+    private AudioClip _hitmarkerFx, _reloadFx, _shootFx, _hurtFx, _jumpFx, _footStep, _pickupFx;
 
     private void Start() {
 
@@ -137,6 +137,8 @@ public class PlayerController : MonoBehaviour {
             _auxSrc.Play();
             transform.position = GameObject.Find("PlayerSpawn").transform.position;
         } else if (col.gameObject.layer == LayerMask.NameToLayer("Collectible")) {
+            _auxSrc.clip = _pickupFx;
+            _auxSrc.Play();
             _collectibles++;
             Destroy(col.gameObject);
         } else if (_collectibles == 3 && col.gameObject.tag == "Helicopter")
