@@ -13,11 +13,10 @@ public class SniperAI : MonoBehaviour
     private float _lookDistance, _rotationSpeed, _fireRate, _scoutTime;
 
     private GameObject _player;
-    private RaycastHit hit;
     private NavMeshAgent _navAgent;
     private List<Vector3> _recentDestinations;
 
-    private bool _alerted, _lookingLeft, _patrolling, _inSight;
+    private bool _alerted, _alertedByScout, _lookingLeft, _patrolling, _inSight;
     private float _timeLastShot, _maxScoutTime;
 
     // Use this for initialization
@@ -27,26 +26,28 @@ public class SniperAI : MonoBehaviour
         _navAgent = GetComponent<NavMeshAgent>();
         _recentDestinations = new List<Vector3>();
         _health = 10;
-        _fieldOfView = 10;
+        _fieldOfView = 20;
         _damage = 5;
-        _lookDistance = 60;
+        _lookDistance = 80;
         _rotationSpeed = 0.2f;
         _fireRate = 3f;
-        _scoutTime = 5f;
+        _scoutTime = 10f;
         _maxScoutTime = _scoutTime;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        /*  Alerted
+        /*
+         *  Alerted By Scout
+         *      -> Keep looking at target
+         *          -> Shoot
+         *  Alerted
          *      -> Shoot
-         *          -> Reload
          *      -> Tries following player
          *          -> If Out of sight
          *              -> Scout, Not alert
          *          -> Continue shooting
-         *
          *  Not Alerted
          *      -> Not patrolling
          *          -> Patrol to points
@@ -58,7 +59,12 @@ public class SniperAI : MonoBehaviour
          *
          *
          */
-        if (_alerted)
+        if (_alertedByScout)
+        {
+            Shoot();
+            LookAtTarget();
+        }
+        else if (_alerted)
         {
             Shoot();
             LookAtTarget();
@@ -72,6 +78,12 @@ public class SniperAI : MonoBehaviour
             if (_scoutTime < 0)
             {
                 Patrol();
+                if (CanSeePlayer())
+                {
+                    _alerted = true;
+                    _scoutTime = _maxScoutTime;
+                    return;
+                }
             }
             else
             {
@@ -80,7 +92,7 @@ public class SniperAI : MonoBehaviour
                     LookAround();
                     if (CanSeePlayer())
                     {
-                        Alert();
+                        _alerted = true;
                         Collider[] infantries = Physics.OverlapSphere(transform.position, _lookDistance * 0.5f, LayerMask.NameToLayer("Infantry"));
                         foreach (var i in infantries)
                         {
@@ -98,13 +110,13 @@ public class SniperAI : MonoBehaviour
 
     private void Shoot()
     {
+        RaycastHit hit;
         Vector3 dir = _player.transform.position - transform.position;
-        dir = new Vector3(dir.x, dir.y + 2.4f, dir.z);
 
         if (Time.time > _fireRate + _timeLastShot)
         {
-            if (Vector3.Angle(new Vector3(dir.x, 0.0f, dir.z), transform.forward) < _fieldOfView * 0.5)
-                if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), dir, out hit, _lookDistance))
+            if (Vector3.Angle(new Vector3(dir.x, 0.0f, dir.z), transform.forward) < _fieldOfView * 0.5f)
+                if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 2.2f, transform.position.z), dir, out hit, _lookDistance))
                 {
                     if (hit.collider.tag == "Player")
                     {
@@ -121,12 +133,12 @@ public class SniperAI : MonoBehaviour
 
     private bool CanSeePlayer()
     {
+        RaycastHit hit;
         Vector3 dir = _player.transform.position - transform.position;
-        dir = new Vector3(dir.x, dir.y + 2.4f, dir.z);
 
-        if (Vector3.Angle(new Vector3(dir.x, 0.0f, dir.z), transform.forward) < _fieldOfView * 0.5)
+        if (Vector3.Angle(new Vector3(dir.x, 0.0f, dir.z), transform.forward) < _fieldOfView * 0.5f)
         {
-            if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), dir, out hit, _lookDistance))
+            if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 2.2f, transform.position.z), dir, out hit, _lookDistance))
             {
                 return (hit.transform.CompareTag("Player"));
             }
@@ -161,6 +173,7 @@ public class SniperAI : MonoBehaviour
 
     public void LookAround()
     {
+        /*
         if (_lookingLeft)
         {
             transform.Rotate(0, -0.25f, 0);
@@ -173,12 +186,18 @@ public class SniperAI : MonoBehaviour
             if (transform.eulerAngles.y > 220.0f && transform.eulerAngles.y < 230.0f)
                 _lookingLeft = true;
         }
+        */
+        float startRot = transform.eulerAngles.y;
+        float endRot = startRot + 360.0f;
+
+        float yRot = Mathf.Lerp(startRot, endRot, 0.003f) % 360.0f;
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRot, transform.eulerAngles.z);
     }
 
     public void LookAtTarget()
     {
         Vector3 dir = (_player.transform.position - transform.position);
-        dir = new Vector3(dir.x, dir.y + 1f, dir.z).normalized;
+        dir = new Vector3(dir.x, dir.y, dir.z).normalized;
 
         dir = Vector3.Slerp(transform.forward, dir, _rotationSpeed * Time.deltaTime);
         dir += transform.position;
@@ -196,7 +215,7 @@ public class SniperAI : MonoBehaviour
 
     public void Alert()
     {
-        _alerted = true;
+        _alertedByScout = true;
     }
 
     //Draw FOV of enemy
