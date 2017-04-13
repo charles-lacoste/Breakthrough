@@ -21,7 +21,6 @@ public class GameController : MonoBehaviour {
     private Transform _playerSpawn;
     [SerializeField]
     private GameObject _explosion;
-    private bool _paused;
 
     void Awake() {
         if (gc == null)
@@ -68,24 +67,22 @@ public class GameController : MonoBehaviour {
     }
 
     public IEnumerator EndGame(bool completed) {
-        if (completed) { //git to da choppa
-            Debug.Log("ok");
-        } else { //u deded
+        if (completed) {
+            StartCoroutine(FindObjectOfType<PlayerController>().Alert("VICTORY!"));
+            yield return new WaitForSeconds(3.0f);
+            SceneManager.LoadScene("GameScene");
+        } else {
             Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0;
-            _paused = true;
+            StartCoroutine(FindObjectOfType<PlayerController>().Alert("Mission failed, we'll get them next time."));
             yield return new WaitForSeconds(3.0f);
             SceneManager.LoadScene("GameScene");
         }
     }
 
-    public bool IsGamePaused() {
-        return _paused;
-    }
-
     public void RemoveInfantry(GameObject infantry) {
         _infantries.Remove(infantry);
         if (_infantries.Count == 3) {
+            StartCoroutine(FindObjectOfType<PlayerController>().Alert("Reinforcements Incoming"));
             for (int i = 0; i < 3; ++i) {
                 _infantries.Add(Instantiate(_infantry, _reinforcementPoints[i].transform.position, Quaternion.identity));
                 _infantries.Add(Instantiate(_infantry, _reinforcementPoints[i].transform.position + new Vector3(4, 0, 4), Quaternion.identity));

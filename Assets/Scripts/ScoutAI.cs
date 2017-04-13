@@ -31,6 +31,7 @@ public class ScoutAI : MonoBehaviour {
             if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 2.2f, transform.position.z), dir, out hit, _lookDistance)) {
                 if (hit.collider.tag == "Player") {
                     //Call sniper's alert
+                    StartCoroutine(FindObjectOfType<PlayerController>().Alert("You have been spotted!"));
                     SniperAI[] snipers = FindObjectsOfType<SniperAI>();
                     foreach (SniperAI s in snipers) {
                         s.Alert();

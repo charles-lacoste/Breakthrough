@@ -2,8 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SniperAI : MonoBehaviour
-{
+public class SniperAI : MonoBehaviour {
     [SerializeField]
     private int _health, _fieldOfView, _damage;
 
@@ -19,8 +18,7 @@ public class SniperAI : MonoBehaviour
     private float _timeLastShot, _maxScoutTime, _maxAlertTime;
 
     // Use this for initialization
-    private void Start()
-    {
+    private void Start() {
         _player = GameObject.FindGameObjectWithTag("Player");
         _navAgent = GetComponent<NavMeshAgent>();
         _anim = GetComponent<Animator>();
@@ -28,7 +26,7 @@ public class SniperAI : MonoBehaviour
         _health = 10;
         _fieldOfView = 20;
         _damage = 5;
-        _lookDistance = 60;
+        _lookDistance = 80;
         _rotationSpeed = 0.2f;
         _fireRate = 3f;
         _scoutTime = 10f;
@@ -38,8 +36,7 @@ public class SniperAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
-    {
+    private void Update() {
         /*
          *  Alerted By Scout
          *      -> Keep looking at target
@@ -69,69 +66,43 @@ public class SniperAI : MonoBehaviour
          *
          *
          */
-        if (_alertedByScout)
-        {
+        if (_alertedByScout) {
             Shoot();
             LookAtTarget();
-        }
-        else if (_alerted)
-        {
+        } else if (_alerted) {
             LookAtTarget();
-            if (CanSeePlayer())
-            {
+            if (CanSeePlayer()) {
                 Shoot();
-            }
-            else if (_gotShot && _alertTime < 0)
-            {
+            } else if (_gotShot && _alertTime < 0) {
                 _alerted = false;
                 _gotShot = false;
                 _alertTime = _maxAlertTime;
                 return;
-            }
-            else if (_gotShot)
-            {
+            } else if (_gotShot) {
                 _alertTime -= Time.deltaTime;
-            }
-            else
-            {
+            } else {
                 _alerted = false;
             }
-        }
-        else
-        {
-            if (_scoutTime < 0)
-            {
+        } else {
+            if (_scoutTime < 0) {
                 _anim.SetBool("Running", true);
                 Patrol();
-                if (CanSeePlayer())
-                {
+                if (CanSeePlayer()) {
                     _alerted = true;
                     _anim.SetBool("Running", false);
                     _scoutTime = _maxScoutTime;
                     return;
-                }
-                else if (_gotShot)
-                {
+                } else if (_gotShot) {
                     _navAgent.SetDestination(transform.position);
                     _anim.SetBool("Running", false);
                     return;
                 }
-            }
-            else
-            {
-                if (DestinationReached())
-                {
+            } else {
+                if (DestinationReached()) {
                     _anim.SetBool("Running", false);
                     LookAround();
-                    if (CanSeePlayer())
-                    {
+                    if (CanSeePlayer()) {
                         _alerted = true;
-                        Collider[] infantries = Physics.OverlapSphere(transform.position, _lookDistance * 0.5f, LayerMask.NameToLayer("Infantry"));
-                        foreach (var i in infantries)
-                        {
-                            i.GetComponent<InfantryAI>().Alert();
-                        }
-
                         _scoutTime = _maxScoutTime;
                         return;
                     }
@@ -141,22 +112,16 @@ public class SniperAI : MonoBehaviour
         }
     }
 
-    private void Shoot()
-    {
+    private void Shoot() {
         RaycastHit hit;
         Vector3 dir = _player.transform.position - transform.position;
 
-        if (Time.time > _fireRate + _timeLastShot)
-        {
+        if (Time.time > _fireRate + _timeLastShot) {
             if (Vector3.Angle(new Vector3(dir.x, 0.0f, dir.z), transform.forward) < _fieldOfView * 0.5f)
-                if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 2.2f, transform.position.z), dir, out hit, _lookDistance))
-                {
-                    if (hit.collider.tag == "Player")
-                    {
+                if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 2.2f, transform.position.z), dir, out hit, _lookDistance)) {
+                    if (hit.collider.tag == "Player") {
                         hit.transform.GetComponent<PlayerController>().TakeDamage(_damage);
-                    }
-                    else
-                    {
+                    } else {
                         _alerted = false;
                     }
                 }
@@ -164,31 +129,32 @@ public class SniperAI : MonoBehaviour
         }
     }
 
-    private bool CanSeePlayer()
-    {
+    private bool CanSeePlayer() {
         RaycastHit hit;
         Vector3 dir = _player.transform.position - transform.position;
 
-        if (Vector3.Angle(new Vector3(dir.x, 0.0f, dir.z), transform.forward) < _fieldOfView * 0.5f)
-        {
-            if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 2.2f, transform.position.z), dir, out hit, _lookDistance))
-            {
-                return (hit.transform.CompareTag("Player"));
+        if (Vector3.Angle(new Vector3(dir.x, 0.0f, dir.z), transform.forward) < _fieldOfView * 0.5f) {
+            if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 2.2f, transform.position.z), dir, out hit, _lookDistance)) {
+                if (hit.transform.CompareTag("Player")) {
+                    Collider[] infantries = Physics.OverlapSphere(transform.position, _lookDistance * 0.5f);
+                    foreach (var i in infantries) {
+                        if (i.gameObject.layer == LayerMask.NameToLayer("Infantry"))
+                            i.GetComponent<InfantryAI>().Alert();
+                    }
+                    return true;
+                }
             }
         }
         return false;
     }
 
-    private void Patrol()
-    {
+    private void Patrol() {
         _scoutTime = _maxScoutTime;
         GameObject[] patrolpts = GameObject.FindGameObjectsWithTag("Sniper Patrol");
         Vector3 closestpt = new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity);
 
-        foreach (var p in patrolpts)
-        {
-            if (Vector3.Distance(p.transform.position, transform.position) < Vector3.Distance(closestpt, transform.position) && !_recentDestinations.Contains(p.transform.position))
-            {
+        foreach (var p in patrolpts) {
+            if (Vector3.Distance(p.transform.position, transform.position) < Vector3.Distance(closestpt, transform.position) && !_recentDestinations.Contains(p.transform.position)) {
                 closestpt = p.transform.position;
             }
         }
@@ -199,13 +165,11 @@ public class SniperAI : MonoBehaviour
             _recentDestinations.RemoveAt(0);
     }
 
-    public bool DestinationReached()
-    {
+    public bool DestinationReached() {
         return _navAgent.remainingDistance == 0;
     }
 
-    public void LookAround()
-    {
+    public void LookAround() {
         float startRot = transform.eulerAngles.y;
         float endRot = startRot + 360.0f;
 
@@ -213,8 +177,7 @@ public class SniperAI : MonoBehaviour
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRot, transform.eulerAngles.z);
     }
 
-    public void LookAtTarget()
-    {
+    public void LookAtTarget() {
         Vector3 dir = (_player.transform.position - transform.position);
         dir = new Vector3(dir.x, dir.y, dir.z).normalized;
 
@@ -223,11 +186,9 @@ public class SniperAI : MonoBehaviour
         transform.LookAt(dir);
     }
 
-    public void TakeDamage(int value)
-    {
+    public void TakeDamage(int value) {
         _health -= value;
-        if (_health < 1)
-        {
+        if (_health < 1) {
             Instantiate(GameController.gc.GetExplosion(), new Vector3(transform.position.x, transform.position.y + 2.0f, transform.position.z), Quaternion.identity);
             Destroy(gameObject);
         }
@@ -236,14 +197,12 @@ public class SniperAI : MonoBehaviour
         transform.LookAt(_player.transform);
     }
 
-    public void Alert()
-    {
+    public void Alert() {
         _alertedByScout = true;
     }
 
     //Draw FOV of enemy
-    private void OnDrawGizmosSelected()
-    {
+    private void OnDrawGizmosSelected() {
         float halfFOV = _fieldOfView * 0.5f;
         Quaternion leftRayRotation = Quaternion.AngleAxis(-halfFOV, Vector3.up);
         Quaternion rightRayRotation = Quaternion.AngleAxis(halfFOV, Vector3.up);

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,21 +10,23 @@ public class PlayerController : MonoBehaviour {
     private ShooterGameCamera _camScript;
     private Transform _gunpoint;
 
-    private int _health;
-    private float _speed, _sprintSpeed, _gravity, _jumpspeed, _fireRate, _timeLastShot;
-    private bool _jumping;
+    private int _health, _ammo, _collectibles;
+    private float _speed, _sprintSpeed, _gravity, _jumpspeed, _fireRate, _timeLastShot, _timeLastDamaged, _timeBeforeRegen;
+    private bool _jumping, _reloading, _damaged, _regenLife, _dead;
 
     private Ray ray;
     private RaycastHit hit;
-    private int _collectibles;
 
+    [SerializeField]
+    private GameObject _deathAnim;
     [SerializeField]
     private AudioSource _walkingSrc, _shootingSrc, _auxSrc;
     [SerializeField]
     private AudioClip _hitmarkerFx, _reloadFx, _shootFx, _hurtFx, _jumpFx, _footStep, _pickupFx;
+    [SerializeField]
+    Text _lifeText, _ammoText, _collectiblesText, _alertsText;
 
     private void Start() {
-
         _anim = GetComponent<Animator>();
         _cc = GetComponent<CharacterController>();
         _cam = GetComponentInChildren<Camera>();
@@ -35,19 +38,30 @@ public class PlayerController : MonoBehaviour {
         _gravity = 500.0f;
         _jumpspeed = 300f;
         _fireRate = 0.25f;
+        _ammo = 15;
+        _timeBeforeRegen = 5.0f;
         AudioSource[] audioSrcArray = GetComponentsInChildren<AudioSource>();
         _walkingSrc = audioSrcArray[0];
         _shootingSrc = audioSrcArray[1];
         _auxSrc = audioSrcArray[2];
         _shootingSrc.clip = _shootFx;
-
         Cursor.lockState = CursorLockMode.Locked;
+        UpdateLife();
+        _ammoText.text = _ammo + "/";
     }
 
     private void Update() {
-        Aim();
-        Move();
-        Shoot();
+        if (!_dead) {
+
+            if (!_regenLife && Time.time > _timeBeforeRegen + _timeLastDamaged)
+                StartCoroutine(RegenLife());
+            Aim();
+            Move();
+            if (Input.GetKeyDown(KeyCode.R) && _ammo != 10)
+                StartCoroutine(Reload());
+            if (!_reloading)
+                Shoot();
+        }
     }
 
     private void Move() {
@@ -95,6 +109,7 @@ public class PlayerController : MonoBehaviour {
     private void Shoot() {
         if (Input.GetMouseButton(0) && Time.time > _fireRate + _timeLastShot) {
             _shootingSrc.Play();
+            _ammoText.text = --_ammo + "/";
             ray = _cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             if (Physics.Raycast(ray, out hit, 1000)) {
                 if (hit.collider.tag == "Enemy") {
@@ -105,7 +120,20 @@ public class PlayerController : MonoBehaviour {
                 }
             }
             _timeLastShot = Time.time;
+            if (_ammo == 0)
+                StartCoroutine(Reload());
         }
+    }
+
+    private IEnumerator Reload() {
+        _reloading = true;
+        _shootingSrc.clip = _reloadFx;
+        _shootingSrc.Play();
+        yield return new WaitForSeconds(2.0f);
+        _ammo = 15;
+        _ammoText.text = _ammo + "/";
+        _shootingSrc.clip = _shootFx;
+        _reloading = false;
     }
 
     private IEnumerator Jump() {
@@ -117,13 +145,45 @@ public class PlayerController : MonoBehaviour {
         _jumping = false;
     }
 
+    public IEnumerator Alert(string txt) {
+        _alertsText.text = txt;
+        yield return new WaitForSeconds(3.0f);
+        _alertsText.text = "";
+    }
+
+    private void UpdateLife() {
+        _lifeText.text = "Life " + _health;
+    }
+
+    private IEnumerator RegenLife() {
+        _regenLife = true;
+        _damaged = false;
+        while (_health < 20) {
+            if (_damaged)
+                break;
+            _health += 1;
+            UpdateLife();
+            yield return new WaitForSeconds(0.5f);
+        }
+        _regenLife = false;
+    }
+
     public void TakeDamage(int value) {
-        _auxSrc.clip = _hurtFx;
-        if (!_auxSrc.isPlaying)
-            _auxSrc.Play();
-        _health -= value;
-        if (_health < 1) {
-            GameController.gc.EndGame(false);
+        if (!_dead) { //The NPC's can still shoot you
+            _auxSrc.clip = _hurtFx;
+            if (!_auxSrc.isPlaying)
+                _auxSrc.Play();
+            _health -= value;
+            _damaged = true;
+            _timeLastDamaged = Time.time;
+            UpdateLife();
+            if (_health < 1) {
+                _dead = true;
+                Instantiate(_deathAnim, transform.position, Quaternion.identity);
+                StartCoroutine(GameController.gc.EndGame(false));
+                GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+                GetComponentInChildren<ShooterGameCamera>().enabled = false;
+            }
         }
     }
 
@@ -139,9 +199,10 @@ public class PlayerController : MonoBehaviour {
         } else if (col.gameObject.layer == LayerMask.NameToLayer("Collectible")) {
             _auxSrc.clip = _pickupFx;
             _auxSrc.Play();
-            _collectibles++;
+            ++_collectibles;
+            _collectiblesText.text = _collectibles.ToString();
             Destroy(col.gameObject);
         } else if (_collectibles == 3 && col.gameObject.tag == "Helicopter")
-            GameController.gc.EndGame(true);
+            StartCoroutine(GameController.gc.EndGame(true));
     }
 }
