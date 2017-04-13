@@ -1188,7 +1188,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 160
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1262,13 +1262,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 162
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1703,6 +1703,7 @@ MonoBehaviour:
   _jumpFx: {fileID: 8300000, guid: 69d98d0e1c182154490cddc7f9bfa028, type: 3}
   _footStep: {fileID: 8300000, guid: fc8da02e95435406f89db024451a0bb8, type: 3}
   _pickupFx: {fileID: 8300000, guid: 0e77acd3ec753c94495415da3e66a625, type: 3}
+  _victoryFx: {fileID: 8300000, guid: a68b1d32907e060488c05756efe0e9a9, type: 3}
   _lifeText: {fileID: 114458231686437214}
   _ammoText: {fileID: 114606877342624922}
   _collectiblesText: {fileID: 114066545033278548}

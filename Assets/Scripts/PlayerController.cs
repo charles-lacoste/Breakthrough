@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private AudioSource _walkingSrc, _shootingSrc, _auxSrc;
     [SerializeField]
-    private AudioClip _hitmarkerFx, _reloadFx, _shootFx, _hurtFx, _jumpFx, _footStep, _pickupFx;
+    private AudioClip _hitmarkerFx, _reloadFx, _shootFx, _hurtFx, _jumpFx, _footStep, _pickupFx, _victoryFx;
     [SerializeField]
     Text _lifeText, _ammoText, _collectiblesText, _alertsText;
 
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
                 StartCoroutine(RegenLife());
             Aim();
             Move();
-            if (Input.GetKeyDown(KeyCode.R) && _ammo != 10)
+            if (Input.GetKeyDown(KeyCode.R) && _ammo != 15)
                 StartCoroutine(Reload());
             if (!_reloading)
                 Shoot();
@@ -152,6 +152,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void UpdateLife() {
+        if (_health < 1)
+            _health = 0;
         _lifeText.text = "Life " + _health;
     }
 
@@ -202,7 +204,10 @@ public class PlayerController : MonoBehaviour {
             ++_collectibles;
             _collectiblesText.text = _collectibles.ToString();
             Destroy(col.gameObject);
-        } else if (_collectibles == 3 && col.gameObject.tag == "Helicopter")
+        } else if (_collectibles == 3 && col.gameObject.tag == "Helicopter") {
+            _shootingSrc.clip = _victoryFx;
+            _shootingSrc.Play();
             StartCoroutine(GameController.gc.EndGame(true));
+        }
     }
 }

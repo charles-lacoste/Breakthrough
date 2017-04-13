@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour {
     private Transform _playerSpawn;
     [SerializeField]
     private GameObject _explosion;
+    private AudioClip _victoryFx;
+    private AudioSource[] _audioSrcList;
 
     void Awake() {
         if (gc == null)
@@ -29,12 +31,16 @@ public class GameController : MonoBehaviour {
 
     void Start() {
         _infantries = new List<GameObject>();
+        _audioSrcList = _playerSpawn.GetComponents<AudioSource>();
     }
 
     public void StartGame() {
+
+        _audioSrcList[1].Stop();
         GetComponent<AudioListener>().enabled = false;
         _mainMenuCanvas.gameObject.SetActive(false);
         _menuCam.gameObject.SetActive(false);
+
         Instantiate(_player, _playerSpawn.position, Quaternion.identity);
         List<int> nbs = new List<int>();
         for (int i = 0; i < 9; ++i) {
@@ -69,7 +75,9 @@ public class GameController : MonoBehaviour {
     public IEnumerator EndGame(bool completed) {
         if (completed) {
             StartCoroutine(FindObjectOfType<PlayerController>().Alert("VICTORY!"));
-            yield return new WaitForSeconds(3.0f);
+            _audioSrcList[1].clip = _victoryFx;
+            _audioSrcList[1].Play();
+            yield return new WaitForSeconds(4.7f);
             SceneManager.LoadScene("GameScene");
         } else {
             Cursor.lockState = CursorLockMode.None;
