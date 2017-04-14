@@ -67,6 +67,7 @@ public class SniperAI : MonoBehaviour {
          *
          */
         if (_alertedByScout) {
+            _anim.SetBool("Running", false);
             Shoot();
             LookAtTarget();
         } else if (_alerted) {
