@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 970018730}
-  m_IndirectSpecularColor: {r: 0.2968713, g: 0.24607372, b: 0.23193666, a: 1}
+  m_IndirectSpecularColor: {r: 0.29697832, g: 0.24607518, b: 0.23221672, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -724,7 +724,7 @@ Transform:
   - {fileID: 1710536487}
   - {fileID: 1660275104}
   m_Father: {fileID: 2099056888}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96108909
 GameObject:
@@ -3106,7 +3106,7 @@ MonoBehaviour:
   _scout: {fileID: 1539045359971912, guid: df567bd8bdde4ad4788d07168431376e, type: 2}
   _player: {fileID: 1553846491374594, guid: b0ac434b5ee408a4fabed8d1b6abe38f, type: 2}
   _gas: {fileID: 1961205972688006, guid: c7ef532dc8a821343b9ad6d07f52f94c, type: 2}
-  _playerSpawn: {fileID: 1349683052}
+  _playerSpawn: {fileID: 1349683051}
   _explosion: {fileID: 1322817984540080, guid: 5e0c5f23471d4784993b860c50084683, type: 2}
 --- !u!81 &404318936
 AudioListener:
@@ -9243,7 +9243,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 171ccb1b83fcfbc4c92a9cc1f5d6223e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -10100,7 +10100,7 @@ Transform:
   - {fileID: 1015188767}
   - {fileID: 1364784520}
   m_Father: {fileID: 2099056888}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 115.61, z: 0}
 --- !u!1 &1425453858
 GameObject:
@@ -11603,7 +11603,7 @@ Transform:
   - {fileID: 836664685}
   - {fileID: 1637752131}
   m_Father: {fileID: 2099056888}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: -0.947, y: -13.290001, z: 0}
 --- !u!4 &1710536487 stripped
 Transform:
@@ -13874,15 +13874,15 @@ Transform:
   - {fileID: 1247645877}
   - {fileID: 2081211868}
   - {fileID: 772006145}
-  - {fileID: 472339270}
   - {fileID: 91876200}
-  - {fileID: 700518736}
+  - {fileID: 472339270}
   - {fileID: 1708747105}
+  - {fileID: 700518736}
   - {fileID: 1404610039}
   - {fileID: 1842906614}
   - {fileID: 316153401}
-  - {fileID: 517283991}
   - {fileID: 1419661755}
+  - {fileID: 517283991}
   - {fileID: 641309558}
   - {fileID: 333657152}
   m_Father: {fileID: 0}

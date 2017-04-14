@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     private GameObject _sniper, _infantry, _scout, _player, _gas;
     [SerializeField]
-    private Transform _playerSpawn;
+    private GameObject _playerSpawn;
     [SerializeField]
     private GameObject _explosion;
     private AudioClip _victoryFx;
@@ -31,17 +31,16 @@ public class GameController : MonoBehaviour {
 
     void Start() {
         _infantries = new List<GameObject>();
-        _audioSrcList = _playerSpawn.GetComponents<AudioSource>();
     }
 
     public void StartGame() {
-
+        _audioSrcList = _playerSpawn.GetComponents<AudioSource>();
         _audioSrcList[1].Stop();
         GetComponent<AudioListener>().enabled = false;
         _mainMenuCanvas.gameObject.SetActive(false);
         _menuCam.gameObject.SetActive(false);
 
-        Instantiate(_player, _playerSpawn.position, Quaternion.identity);
+        Instantiate(_player, _playerSpawn.transform.position, Quaternion.identity);
         List<int> nbs = new List<int>();
         for (int i = 0; i < 9; ++i) {
             int r = Random.Range(0, _patrolPoints.Length - 1);
