@@ -201,15 +201,4 @@ public class SniperAI : MonoBehaviour {
     public void Alert() {
         _alertedByScout = true;
     }
-
-    //Draw FOV of enemy
-    private void OnDrawGizmosSelected() {
-        float halfFOV = _fieldOfView * 0.5f;
-        Quaternion leftRayRotation = Quaternion.AngleAxis(-halfFOV, Vector3.up);
-        Quaternion rightRayRotation = Quaternion.AngleAxis(halfFOV, Vector3.up);
-        Vector3 leftRayDirection = leftRayRotation * transform.forward * _lookDistance;
-        Vector3 rightRayDirection = rightRayRotation * transform.forward * _lookDistance;
-        Gizmos.DrawRay(transform.position, leftRayDirection * _lookDistance);
-        Gizmos.DrawRay(transform.position, rightRayDirection * _lookDistance);
-    }
 }

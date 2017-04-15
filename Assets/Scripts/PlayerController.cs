@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 
     private int _health, _ammo, _collectibles;
     private float _speed, _sprintSpeed, _gravity, _jumpspeed, _vSpeed, _fireRate, _timeLastShot, _timeLastDamaged, _timeBeforeRegen;
-    private bool _jumping, _reloading, _damaged, _regenLife, _dead;
+    private bool _jumping, _reloading, _damaged, _regenLife, _canMove;
 
     private Ray ray;
     private RaycastHit hit;
@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour {
         _fireRate = 0.25f;
         _ammo = 15;
         _timeBeforeRegen = 5.0f;
+        _canMove = true;
         AudioSource[] audioSrcArray = GetComponentsInChildren<AudioSource>();
         _walkingSrc = audioSrcArray[0];
         _shootingSrc = audioSrcArray[1];
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
-        if (!_dead) {
+        if (_canMove) {
             if (!_regenLife && Time.time > _timeBeforeRegen + _timeLastDamaged)
                 StartCoroutine(RegenLife());
             Aim();
@@ -79,15 +80,16 @@ public class PlayerController : MonoBehaviour {
             else
                 movement *= _speed;
             _anim.SetBool("Running", true);
-            //if (!_footsteps.isPlaying)
-            //    _footsteps.Play();
         } else {
             _anim.SetBool("Running", false);
         }
         if (_cc.isGrounded) {
             _vSpeed = -1;
-            if (Input.GetKeyDown(KeyCode.Space) && !_jumping)
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                _walkingSrc.clip = _jumpFx;
+                _walkingSrc.Play();
                 _vSpeed = _jumpspeed;
+            }
         }
         _vSpeed -= _gravity * Time.deltaTime;
         movement.y = _vSpeed;
@@ -162,7 +164,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void TakeDamage(int value) {
-        if (!_dead) { //The NPC's can still shoot you
+        if (_canMove) { //The NPC's can still shoot you
             _auxSrc.clip = _hurtFx;
             if (!_auxSrc.isPlaying)
                 _auxSrc.Play();
@@ -171,7 +173,7 @@ public class PlayerController : MonoBehaviour {
             _timeLastDamaged = Time.time;
             UpdateLife();
             if (_health < 1) {
-                _dead = true;
+                _canMove = false;
                 Instantiate(_deathAnim, transform.position, Quaternion.identity);
                 StartCoroutine(GameController.gc.EndGame(false));
                 GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
@@ -198,6 +200,7 @@ public class PlayerController : MonoBehaviour {
         } else if (_collectibles == 3 && col.gameObject.tag == "Helicopter") {
             _shootingSrc.clip = _victoryFx;
             _shootingSrc.Play();
+            _canMove = false;
             Cursor.lockState = CursorLockMode.None;
             StartCoroutine(GameController.gc.EndGame(true));
         }
