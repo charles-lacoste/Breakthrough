@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     private Transform _gunpoint;
 
     private int _health, _ammo, _collectibles;
-    private float _speed, _sprintSpeed, _gravity, _jumpspeed, _fireRate, _timeLastShot, _timeLastDamaged, _timeBeforeRegen;
+    private float _speed, _sprintSpeed, _gravity, _jumpspeed, _vSpeed, _fireRate, _timeLastShot, _timeLastDamaged, _timeBeforeRegen;
     private bool _jumping, _reloading, _damaged, _regenLife, _dead;
 
     private Ray ray;
@@ -35,8 +35,8 @@ public class PlayerController : MonoBehaviour {
         _health = 20;
         _speed = 4.0f;
         _sprintSpeed = 8.0f;
-        _gravity = 500.0f;
-        _jumpspeed = 300f;
+        _gravity = 25.0f;
+        _jumpspeed = 10.0f;
         _fireRate = 0.25f;
         _ammo = 15;
         _timeBeforeRegen = 5.0f;
@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour {
 
     private void Update() {
         if (!_dead) {
-
             if (!_regenLife && Time.time > _timeBeforeRegen + _timeLastDamaged)
                 StartCoroutine(RegenLife());
             Aim();
@@ -85,12 +84,13 @@ public class PlayerController : MonoBehaviour {
         } else {
             _anim.SetBool("Running", false);
         }
-        if (_cc.isGrounded && Input.GetKeyDown(KeyCode.Space) && !_jumping)
-            StartCoroutine(Jump());
-        if (_jumping)
-            movement.y += _jumpspeed * Time.deltaTime;
-        else
-            movement.y -= _gravity * Time.deltaTime;
+        if (_cc.isGrounded) {
+            _vSpeed = -1;
+            if (Input.GetKeyDown(KeyCode.Space) && !_jumping)
+                _vSpeed = _jumpspeed;
+        }
+        _vSpeed -= _gravity * Time.deltaTime;
+        movement.y = _vSpeed;
         _cc.Move(movement * Time.deltaTime);
     }
 
@@ -134,15 +134,6 @@ public class PlayerController : MonoBehaviour {
         _ammoText.text = _ammo + "/";
         _shootingSrc.clip = _shootFx;
         _reloading = false;
-    }
-
-    private IEnumerator Jump() {
-        _jumping = true;
-        _auxSrc.clip = _jumpFx;
-        if (!_auxSrc.isPlaying)
-            _auxSrc.Play();
-        yield return new WaitForSeconds(0.35f);
-        _jumping = false;
     }
 
     public IEnumerator Alert(string txt) {
@@ -207,6 +198,7 @@ public class PlayerController : MonoBehaviour {
         } else if (_collectibles == 3 && col.gameObject.tag == "Helicopter") {
             _shootingSrc.clip = _victoryFx;
             _shootingSrc.Play();
+            Cursor.lockState = CursorLockMode.None;
             StartCoroutine(GameController.gc.EndGame(true));
         }
     }
